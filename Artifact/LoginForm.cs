@@ -116,5 +116,12 @@ namespace Artifact
             System.Diagnostics.Process.Start("iexplore.exe", "http://wpa.qq.com/msgrd?v=3&uin=369679590&site=http://www.zhongyi8888.com&menu=yes");
 
         }
+
+        private void textBoxPassword_KeyDown(object sender, KeyEventArgs e)
+        {
+
+            if (e.KeyCode == Keys.Enter)
+                buttonSubmit_Click(sender, e);
+        }
     }
 }

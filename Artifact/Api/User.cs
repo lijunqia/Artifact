@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Artifact.Api
 {
-    class User
+    public class User
     {
         public string user_id { get; set; }
         public string role_id { get; set; }
@@ -23,6 +23,7 @@ namespace Artifact.Api
         public string user_remark { get; set; }
         public string user_created { get; set; }
         public string user_updated { get; set; }
+        public string user_is_service { get; set; }
 
 
         public string token { get; set; }

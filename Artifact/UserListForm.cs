@@ -69,28 +69,6 @@ namespace Artifact
         private void UserListForm_Load(object sender, EventArgs e)
         {
             this.bindData();
-            /*
-            try
-            {
-                Response res = new Response();
-                System.Collections.Generic.List<Artifact.Api.User> users = res.UserList();
-                if (users != null)
-                {
-                    Extra extra = (Extra)JsonConvert.DeserializeObject(res.extra.ToString(), typeof(Extra));
-                    this.pageCount = extra.pages;
-                    this.pageCurrent = extra.page;
-                    this.pageSize = extra.size;
-                    this.totalRecord = extra.total;
-
-                    this.userBindingSource.DataSource = users;
-                }
-
-
-            }
-            catch (Exception ex)
-            {
-                //MessageBox.Show("获取信息出错！" + ex.Message);
-            }*/
         }
 
 
@@ -125,6 +103,7 @@ namespace Artifact
                                 user.user_mobile = row.Cells[6].Value.ToString();
                                 user.user_email = row.Cells[7].Value.ToString();
                                 user.user_remark = row.Cells[8].Value.ToString();
+                                user.user_is_service = row.Cells[9].Value.ToString();
 
                                 if (res.UserUpdate(user) != null)
                                     MessageBox.Show("保存成功", "提示");

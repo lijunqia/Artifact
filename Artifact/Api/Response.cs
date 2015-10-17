@@ -23,6 +23,7 @@ namespace Artifact.Api
 
         protected string apiUserLogin = "http://api.zhongyi8888.com/site/login?";
         protected string apiUserList = "http://api.zhongyi8888.com/user?";
+        protected string apiUserService = "http://api.zhongyi8888.com/user/service?";
         protected string apiUserCreate = "http://api.zhongyi8888.com/user/create?";
         protected string apiUserUpdate = "http://api.zhongyi8888.com/user/update?";
         protected string apiUserDelete = "http://api.zhongyi8888.com/user/delete?";
@@ -31,6 +32,143 @@ namespace Artifact.Api
         protected string apiMessageList = "http://api.zhongyi8888.com/message?";
         protected string apiMessageDelete = "http://api.zhongyi8888.com/message/delete?";
         protected string apiMessageUpload = "http://api.zhongyi8888.com/message/upload?";
+        protected string apiChatCreate = "http://api.zhongyi8888.com/chat/create?";
+        protected string apiChatList = "http://api.zhongyi8888.com/chat?";
+        protected string apiChatDelete = "http://api.zhongyi8888.com/chat/delete?";
+        protected string apiChatUpload = "http://api.zhongyi8888.com/chat/upload?";
+        protected string apiChatUser = "http://api.zhongyi8888.com/chat/user?";
+
+        public List<User> ChatUser()
+        {
+            User manageUser = Program.user;
+            this.SendApi(this.apiChatUser + "token=" + manageUser.token);
+
+            try
+            {
+                if (this.items != "")
+                {
+                    /*下面是解析JArray的部分*/
+                    JArray jList = JArray.Parse(this.items); //将pois部分视为一个JObject，JArray解析这个JObject的字符串
+                    User user = null;      //存储附近的某个地点的信息
+                    List<User> users = new List<User>();  //附近位置的列表
+                    for (int i = 0; i < jList.Count; ++i)  //遍历JArray
+                    {
+                        Console.WriteLine(" jlist " + i.ToString() + jList[i].ToString());
+                        user = (User)JsonConvert.DeserializeObject(jList[i].ToString(), typeof(User));
+                        users.Add(user);
+                    }
+
+                    return users;
+                }
+                return null;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(" API message list 出错 " + ex.Message);
+                return null;
+            }
+
+        }
+
+        public Snap ChatUpload(Image image)
+        {
+            MemoryStream ms = new MemoryStream();
+            image.Save(ms, ImageFormat.Jpeg);
+            ms.Flush();
+            byte[] buffer = ms.GetBuffer();
+            ms.Close();
+
+            User user = Program.user;
+            this.SendPostApi(this.apiChatUpload, "token=" + user.token + "&image=" + HttpUtility.UrlEncode(Convert.ToBase64String(buffer)));
+
+            try
+            {
+                if (this.items != "")
+                {
+                    return (Snap)JsonConvert.DeserializeObject(this.items, typeof(Snap));
+                }
+                return null;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(" API chat upload 出错 " + ex.Message);
+                return null;
+            }
+
+        }
+        public bool ChatDelete(string id)
+        {
+            User user = Program.user;
+            this.SendApi(this.apiChatDelete + "token=" + user.token + "&id=" + id);
+
+            try
+            {
+                if (this.code == "0")
+                {
+                    return true;
+                }
+                return false;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(" API Chat add 出错 " + ex.Message);
+                return false;
+            }
+
+        }
+
+        public Chat ChatCreate(Chat chat)
+        {
+            User user = Program.user;
+            this.SendPostApi(this.apiChatCreate, "token=" + user.token + "&text=" + chat.chat_text + "&to=" + chat.chat_user_id);
+
+            try
+            {
+                if (this.items != "")
+                {
+                    return (Chat)JsonConvert.DeserializeObject(this.items, typeof(Chat));
+                }
+                return null;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(" API Chat add 出错 " + ex.Message);
+                return null;
+            }
+
+        }
+
+        public List<Chat> ChatList(int maxId = 0, string to = "", int page = 0, int size = 20, string q = "")
+        {
+            User manageUser = Program.user;
+            this.SendApi(this.apiChatList + "token=" + manageUser.token + "&min=" + maxId.ToString() + "&to=" + to.ToString() + "&page=" + page.ToString() + "&size=" + size.ToString() + "&q=" + q);
+
+            try
+            {
+                if (this.items != "")
+                {
+                    /*下面是解析JArray的部分*/
+                    JArray jList = JArray.Parse(this.items); //将pois部分视为一个JObject，JArray解析这个JObject的字符串
+                    Chat chat = null;      //存储附近的某个地点的信息
+                    List<Chat> chats = new List<Chat>();  //附近位置的列表
+                    for (int i = 0; i < jList.Count; ++i)  //遍历JArray
+                    {
+                        Console.WriteLine(" jlist " + i.ToString() + jList[i].ToString());
+                        chat = (Chat)JsonConvert.DeserializeObject(jList[i].ToString(), typeof(Chat));
+                        chats.Add(chat);
+                    }
+
+                    return chats;
+                }
+                return null;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(" API Chat list 出错 " + ex.Message);
+                return null;
+            }
+
+        }
 
 
         public Snap MessageUpload(Image image)
@@ -134,6 +272,38 @@ namespace Artifact.Api
         }
 
 
+        public List<User> UserService()
+        {
+            User manageUser = Program.user;
+            this.SendApi(this.apiUserService + "token=" + manageUser.token );
+
+            try
+            {
+                if (this.items != "")
+                {
+                    /*下面是解析JArray的部分*/
+                    JArray jList = JArray.Parse(this.items); //将pois部分视为一个JObject，JArray解析这个JObject的字符串
+                    User user = null;      //存储附近的某个地点的信息
+                    List<User> users = new List<User>();  //附近位置的列表
+                    for (int i = 0; i < jList.Count; ++i)  //遍历JArray
+                    {
+                        Console.WriteLine(" jlist " + i.ToString() + jList[i].ToString());
+                        user = (User)JsonConvert.DeserializeObject(jList[i].ToString(), typeof(User));
+                        users.Add(user);
+                    }
+
+                    return users;
+                }
+                return null;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(" API message list 出错 " + ex.Message);
+                return null;
+            }
+
+        }
+
         public List<User> UserList(int maxId = 0, int page = 0, int size = 20, string q = "")
         {
             User manageUser = Program.user;
@@ -170,7 +340,7 @@ namespace Artifact.Api
         public User UserCreate(User user)
         {
             User manageUser = Program.user;
-            this.SendApi(this.apiUserCreate + "token=" + manageUser.token + "&code=" + user.user_code + "&pwd=" + user.user_password + "&role=" + user.role_id + "&name=" + user.user_name + "&expire=" + user.user_expire + "&mobile=" + user.user_mobile + "&email=" + user.user_email + "&remark=" + user.user_remark + "&pcode=" + user.user_parent_code);
+            this.SendApi(this.apiUserCreate + "token=" + manageUser.token + "&code=" + user.user_code + "&pwd=" + user.user_password + "&role=" + user.role_id + "&name=" + user.user_name + "&expire=" + user.user_expire + "&mobile=" + user.user_mobile + "&email=" + user.user_email + "&remark=" + user.user_remark + "&pcode=" + user.user_parent_code + "&service=" + user.user_is_service);
 
             try
             {
@@ -192,7 +362,7 @@ namespace Artifact.Api
         public User UserUpdate(User user)
         {
             User manageUser = Program.user;
-            this.SendApi(this.apiUserUpdate + "token=" + manageUser.token + "&id=" + user.user_id + "&code=" + user.user_code + "&pwd=" + user.user_password + "&role=" + user.role_id + "&name=" + user.user_name + "&expire=" + user.user_expire + "&mobile=" + user.user_mobile + "&email=" + user.user_email + "&remark=" + user.user_remark + "&pcode=" + user.user_parent_code);
+            this.SendApi(this.apiUserUpdate + "token=" + manageUser.token + "&id=" + user.user_id + "&code=" + user.user_code + "&pwd=" + user.user_password + "&role=" + user.role_id + "&name=" + user.user_name + "&expire=" + user.user_expire + "&mobile=" + user.user_mobile + "&email=" + user.user_email + "&remark=" + user.user_remark + "&pcode=" + user.user_parent_code + "&service=" + user.user_is_service);
 
             try
             {

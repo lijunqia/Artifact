@@ -30,6 +30,7 @@ namespace Artifact
         {
             try
             {
+                this.Text += " - "+Program.user.user_code;
                 switch (Int32.Parse(Program.user.role_id))
                 {
                     case 1://管理员
@@ -51,6 +52,16 @@ namespace Artifact
                         this.groupBoxMessage.Visible = false;
                         break;
                 }
+                /*
+                if (Program.user.user_is_service == "1")
+                {
+                    this.buttonChat.Visible = false;
+                }
+                else
+                {
+                    this.buttonChat.Visible = true;
+                }
+                */
                 this.setMessage(10);
 
 
@@ -75,7 +86,7 @@ namespace Artifact
         {
             try
             {
-
+                this.richTextBoxMessageList.Select(this.richTextBoxMessageList.TextLength, 0);
                 Response res = new Response();
                 System.Collections.Generic.List<Artifact.Api.Message> messages = res.MessageList(this.maxId,0, size);
                 if (messages != null)

@@ -35,35 +35,36 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UserListForm));
             this.dataGridViewUserList = new System.Windows.Forms.DataGridView();
-            this.user_password = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.contextMenuStripUser = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.toolStripMenuItemDelete = new System.Windows.Forms.ToolStripMenuItem();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            this.textBoxKey = new System.Windows.Forms.TextBox();
-            this.buttonSearch = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.buttonPre = new System.Windows.Forms.Button();
-            this.textBoxPage = new System.Windows.Forms.TextBox();
-            this.labelTotalPage = new System.Windows.Forms.Label();
-            this.buttonNext = new System.Windows.Forms.Button();
-            this.buttonFirst = new System.Windows.Forms.Button();
-            this.buttonLast = new System.Windows.Forms.Button();
             this.labelLoading = new System.Windows.Forms.Label();
+            this.buttonLast = new System.Windows.Forms.Button();
+            this.buttonFirst = new System.Windows.Forms.Button();
+            this.buttonNext = new System.Windows.Forms.Button();
+            this.labelTotalPage = new System.Windows.Forms.Label();
+            this.textBoxPage = new System.Windows.Forms.TextBox();
+            this.buttonPre = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.buttonSearch = new System.Windows.Forms.Button();
+            this.textBoxKey = new System.Windows.Forms.TextBox();
+            this.userBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.useridDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.roleidDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.usercodeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.user_password = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.userexpireDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.usernameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.usermobileDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.useremailDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.userremarkDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.user_is_service = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.userlasttimeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.userlastipDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.userloginnumDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.userisexpDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.usercreatedDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.userupdatedDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.userBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewUserList)).BeginInit();
             this.contextMenuStripUser.SuspendLayout();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -96,6 +97,7 @@
             this.usermobileDataGridViewTextBoxColumn,
             this.useremailDataGridViewTextBoxColumn,
             this.userremarkDataGridViewTextBoxColumn,
+            this.user_is_service,
             this.userlasttimeDataGridViewTextBoxColumn,
             this.userlastipDataGridViewTextBoxColumn,
             this.userloginnumDataGridViewTextBoxColumn,
@@ -129,12 +131,6 @@
             this.dataGridViewUserList.Size = new System.Drawing.Size(786, 513);
             this.dataGridViewUserList.TabIndex = 0;
             this.dataGridViewUserList.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewUserList_CellValueChanged);
-            // 
-            // user_password
-            // 
-            this.user_password.DataPropertyName = "user_password";
-            this.user_password.HeaderText = "密码";
-            this.user_password.Name = "user_password";
             // 
             // contextMenuStripUser
             // 
@@ -177,92 +173,12 @@
             this.splitContainer1.SplitterDistance = 44;
             this.splitContainer1.TabIndex = 1;
             // 
-            // textBoxKey
+            // labelLoading
             // 
-            this.textBoxKey.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBoxKey.Location = new System.Drawing.Point(71, 14);
-            this.textBoxKey.Name = "textBoxKey";
-            this.textBoxKey.Size = new System.Drawing.Size(125, 21);
-            this.textBoxKey.TabIndex = 0;
-            // 
-            // buttonSearch
-            // 
-            this.buttonSearch.BackColor = System.Drawing.Color.Red;
-            this.buttonSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonSearch.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.buttonSearch.Location = new System.Drawing.Point(202, 12);
-            this.buttonSearch.Name = "buttonSearch";
-            this.buttonSearch.Size = new System.Drawing.Size(75, 23);
-            this.buttonSearch.TabIndex = 1;
-            this.buttonSearch.Text = "查询(&Q)";
-            this.buttonSearch.UseVisualStyleBackColor = false;
-            this.buttonSearch.Click += new System.EventHandler(this.buttonSearch_Click);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.ForeColor = System.Drawing.Color.Black;
-            this.label1.Location = new System.Drawing.Point(12, 17);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(53, 12);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "关键字：";
-            // 
-            // buttonPre
-            // 
-            this.buttonPre.BackColor = System.Drawing.Color.Red;
-            this.buttonPre.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonPre.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.buttonPre.Location = new System.Drawing.Point(340, 12);
-            this.buttonPre.Name = "buttonPre";
-            this.buttonPre.Size = new System.Drawing.Size(31, 23);
-            this.buttonPre.TabIndex = 3;
-            this.buttonPre.Text = "<";
-            this.buttonPre.UseVisualStyleBackColor = false;
-            this.buttonPre.Click += new System.EventHandler(this.buttonPre_Click);
-            // 
-            // textBoxPage
-            // 
-            this.textBoxPage.Location = new System.Drawing.Point(377, 14);
-            this.textBoxPage.Name = "textBoxPage";
-            this.textBoxPage.Size = new System.Drawing.Size(40, 21);
-            this.textBoxPage.TabIndex = 4;
-            // 
-            // labelTotalPage
-            // 
-            this.labelTotalPage.AutoSize = true;
-            this.labelTotalPage.Location = new System.Drawing.Point(423, 17);
-            this.labelTotalPage.Name = "labelTotalPage";
-            this.labelTotalPage.Size = new System.Drawing.Size(11, 12);
-            this.labelTotalPage.TabIndex = 5;
-            this.labelTotalPage.Text = "/";
-            // 
-            // buttonNext
-            // 
-            this.buttonNext.BackColor = System.Drawing.Color.Red;
-            this.buttonNext.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonNext.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.buttonNext.Location = new System.Drawing.Point(462, 11);
-            this.buttonNext.Name = "buttonNext";
-            this.buttonNext.Size = new System.Drawing.Size(33, 23);
-            this.buttonNext.TabIndex = 6;
-            this.buttonNext.Text = ">";
-            this.buttonNext.UseVisualStyleBackColor = false;
-            this.buttonNext.Click += new System.EventHandler(this.buttonNext_Click);
-            // 
-            // buttonFirst
-            // 
-            this.buttonFirst.BackColor = System.Drawing.Color.Red;
-            this.buttonFirst.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonFirst.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.buttonFirst.Location = new System.Drawing.Point(304, 12);
-            this.buttonFirst.Name = "buttonFirst";
-            this.buttonFirst.Size = new System.Drawing.Size(30, 23);
-            this.buttonFirst.TabIndex = 7;
-            this.buttonFirst.Text = "<<";
-            this.buttonFirst.UseVisualStyleBackColor = false;
-            this.buttonFirst.Click += new System.EventHandler(this.buttonFirst_Click);
+            this.labelLoading.Location = new System.Drawing.Point(557, 16);
+            this.labelLoading.Name = "labelLoading";
+            this.labelLoading.Size = new System.Drawing.Size(100, 17);
+            this.labelLoading.TabIndex = 9;
             // 
             // buttonLast
             // 
@@ -277,12 +193,96 @@
             this.buttonLast.UseVisualStyleBackColor = false;
             this.buttonLast.Click += new System.EventHandler(this.buttonLast_Click);
             // 
-            // labelLoading
+            // buttonFirst
             // 
-            this.labelLoading.Location = new System.Drawing.Point(557, 16);
-            this.labelLoading.Name = "labelLoading";
-            this.labelLoading.Size = new System.Drawing.Size(100, 17);
-            this.labelLoading.TabIndex = 9;
+            this.buttonFirst.BackColor = System.Drawing.Color.Red;
+            this.buttonFirst.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonFirst.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.buttonFirst.Location = new System.Drawing.Point(304, 12);
+            this.buttonFirst.Name = "buttonFirst";
+            this.buttonFirst.Size = new System.Drawing.Size(30, 23);
+            this.buttonFirst.TabIndex = 7;
+            this.buttonFirst.Text = "<<";
+            this.buttonFirst.UseVisualStyleBackColor = false;
+            this.buttonFirst.Click += new System.EventHandler(this.buttonFirst_Click);
+            // 
+            // buttonNext
+            // 
+            this.buttonNext.BackColor = System.Drawing.Color.Red;
+            this.buttonNext.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonNext.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.buttonNext.Location = new System.Drawing.Point(462, 11);
+            this.buttonNext.Name = "buttonNext";
+            this.buttonNext.Size = new System.Drawing.Size(33, 23);
+            this.buttonNext.TabIndex = 6;
+            this.buttonNext.Text = ">";
+            this.buttonNext.UseVisualStyleBackColor = false;
+            this.buttonNext.Click += new System.EventHandler(this.buttonNext_Click);
+            // 
+            // labelTotalPage
+            // 
+            this.labelTotalPage.AutoSize = true;
+            this.labelTotalPage.Location = new System.Drawing.Point(423, 17);
+            this.labelTotalPage.Name = "labelTotalPage";
+            this.labelTotalPage.Size = new System.Drawing.Size(11, 12);
+            this.labelTotalPage.TabIndex = 5;
+            this.labelTotalPage.Text = "/";
+            // 
+            // textBoxPage
+            // 
+            this.textBoxPage.Location = new System.Drawing.Point(377, 14);
+            this.textBoxPage.Name = "textBoxPage";
+            this.textBoxPage.Size = new System.Drawing.Size(40, 21);
+            this.textBoxPage.TabIndex = 4;
+            // 
+            // buttonPre
+            // 
+            this.buttonPre.BackColor = System.Drawing.Color.Red;
+            this.buttonPre.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonPre.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.buttonPre.Location = new System.Drawing.Point(340, 12);
+            this.buttonPre.Name = "buttonPre";
+            this.buttonPre.Size = new System.Drawing.Size(31, 23);
+            this.buttonPre.TabIndex = 3;
+            this.buttonPre.Text = "<";
+            this.buttonPre.UseVisualStyleBackColor = false;
+            this.buttonPre.Click += new System.EventHandler(this.buttonPre_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.ForeColor = System.Drawing.Color.Black;
+            this.label1.Location = new System.Drawing.Point(12, 17);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(53, 12);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "关键字：";
+            // 
+            // buttonSearch
+            // 
+            this.buttonSearch.BackColor = System.Drawing.Color.Red;
+            this.buttonSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonSearch.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.buttonSearch.Location = new System.Drawing.Point(202, 12);
+            this.buttonSearch.Name = "buttonSearch";
+            this.buttonSearch.Size = new System.Drawing.Size(75, 23);
+            this.buttonSearch.TabIndex = 1;
+            this.buttonSearch.Text = "查询(&Q)";
+            this.buttonSearch.UseVisualStyleBackColor = false;
+            this.buttonSearch.Click += new System.EventHandler(this.buttonSearch_Click);
+            // 
+            // textBoxKey
+            // 
+            this.textBoxKey.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.textBoxKey.Location = new System.Drawing.Point(71, 14);
+            this.textBoxKey.Name = "textBoxKey";
+            this.textBoxKey.Size = new System.Drawing.Size(125, 21);
+            this.textBoxKey.TabIndex = 0;
+            // 
+            // userBindingSource
+            // 
+            this.userBindingSource.DataSource = typeof(Artifact.Api.User);
             // 
             // useridDataGridViewTextBoxColumn
             // 
@@ -306,6 +306,12 @@
             this.usercodeDataGridViewTextBoxColumn.DataPropertyName = "user_code";
             this.usercodeDataGridViewTextBoxColumn.HeaderText = "账号";
             this.usercodeDataGridViewTextBoxColumn.Name = "usercodeDataGridViewTextBoxColumn";
+            // 
+            // user_password
+            // 
+            this.user_password.DataPropertyName = "user_password";
+            this.user_password.HeaderText = "密码";
+            this.user_password.Name = "user_password";
             // 
             // userexpireDataGridViewTextBoxColumn
             // 
@@ -337,6 +343,12 @@
             this.userremarkDataGridViewTextBoxColumn.DataPropertyName = "user_remark";
             this.userremarkDataGridViewTextBoxColumn.HeaderText = "备注";
             this.userremarkDataGridViewTextBoxColumn.Name = "userremarkDataGridViewTextBoxColumn";
+            // 
+            // user_is_service
+            // 
+            this.user_is_service.DataPropertyName = "user_is_service";
+            this.user_is_service.HeaderText = "是否客服";
+            this.user_is_service.Name = "user_is_service";
             // 
             // userlasttimeDataGridViewTextBoxColumn
             // 
@@ -374,10 +386,6 @@
             this.userupdatedDataGridViewTextBoxColumn.HeaderText = "更新时间";
             this.userupdatedDataGridViewTextBoxColumn.Name = "userupdatedDataGridViewTextBoxColumn";
             // 
-            // userBindingSource
-            // 
-            this.userBindingSource.DataSource = typeof(Artifact.Api.User);
-            // 
             // UserListForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -408,21 +416,6 @@
         private System.Windows.Forms.BindingSource userBindingSource;
         private System.Windows.Forms.ContextMenuStrip contextMenuStripUser;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemDelete;
-        private System.Windows.Forms.DataGridViewTextBoxColumn useridDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn roleidDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn usercodeDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn user_password;
-        private System.Windows.Forms.DataGridViewTextBoxColumn userexpireDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn usernameDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn usermobileDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn useremailDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn userremarkDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn userlasttimeDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn userlastipDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn userloginnumDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn userisexpDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn usercreatedDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn userupdatedDataGridViewTextBoxColumn;
         private System.Windows.Forms.SplitContainer splitContainer1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button buttonSearch;
@@ -434,5 +427,21 @@
         private System.Windows.Forms.Button buttonLast;
         private System.Windows.Forms.Button buttonFirst;
         private System.Windows.Forms.Label labelLoading;
+        private System.Windows.Forms.DataGridViewTextBoxColumn useridDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn roleidDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn usercodeDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn user_password;
+        private System.Windows.Forms.DataGridViewTextBoxColumn userexpireDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn usernameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn usermobileDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn useremailDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn userremarkDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn user_is_service;
+        private System.Windows.Forms.DataGridViewTextBoxColumn userlasttimeDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn userlastipDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn userloginnumDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn userisexpDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn usercreatedDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn userupdatedDataGridViewTextBoxColumn;
     }
 }

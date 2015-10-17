@@ -42,6 +42,9 @@
             this.label5 = new System.Windows.Forms.Label();
             this.richTextBoxRemark = new System.Windows.Forms.RichTextBox();
             this.label6 = new System.Windows.Forms.Label();
+            this.radioButtonService = new System.Windows.Forms.RadioButton();
+            this.radioButtonNoService = new System.Windows.Forms.RadioButton();
+            this.label7 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // textBoxCode
@@ -99,7 +102,7 @@
             this.buttonOk.BackColor = System.Drawing.Color.Red;
             this.buttonOk.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonOk.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.buttonOk.Location = new System.Drawing.Point(135, 392);
+            this.buttonOk.Location = new System.Drawing.Point(135, 430);
             this.buttonOk.Name = "buttonOk";
             this.buttonOk.Size = new System.Drawing.Size(140, 23);
             this.buttonOk.TabIndex = 6;
@@ -154,7 +157,7 @@
             // 
             // richTextBoxRemark
             // 
-            this.richTextBoxRemark.Location = new System.Drawing.Point(135, 264);
+            this.richTextBoxRemark.Location = new System.Drawing.Point(135, 302);
             this.richTextBoxRemark.Name = "richTextBoxRemark";
             this.richTextBoxRemark.Size = new System.Drawing.Size(200, 96);
             this.richTextBoxRemark.TabIndex = 12;
@@ -163,17 +166,51 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(88, 266);
+            this.label6.Location = new System.Drawing.Point(88, 304);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(41, 12);
             this.label6.TabIndex = 13;
             this.label6.Text = "备注：";
+            // 
+            // radioButtonService
+            // 
+            this.radioButtonService.AutoSize = true;
+            this.radioButtonService.Location = new System.Drawing.Point(135, 262);
+            this.radioButtonService.Name = "radioButtonService";
+            this.radioButtonService.Size = new System.Drawing.Size(35, 16);
+            this.radioButtonService.TabIndex = 14;
+            this.radioButtonService.Text = "是";
+            this.radioButtonService.UseVisualStyleBackColor = true;
+            // 
+            // radioButtonNoService
+            // 
+            this.radioButtonNoService.AutoSize = true;
+            this.radioButtonNoService.Checked = true;
+            this.radioButtonNoService.Location = new System.Drawing.Point(240, 262);
+            this.radioButtonNoService.Name = "radioButtonNoService";
+            this.radioButtonNoService.Size = new System.Drawing.Size(35, 16);
+            this.radioButtonNoService.TabIndex = 15;
+            this.radioButtonNoService.TabStop = true;
+            this.radioButtonNoService.Text = "否";
+            this.radioButtonNoService.UseVisualStyleBackColor = true;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(64, 262);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(65, 12);
+            this.label7.TabIndex = 16;
+            this.label7.Text = "是否客服：";
             // 
             // UserCreateForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(433, 478);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.radioButtonNoService);
+            this.Controls.Add(this.radioButtonService);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.richTextBoxRemark);
             this.Controls.Add(this.label5);
@@ -215,5 +252,8 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.RichTextBox richTextBoxRemark;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.RadioButton radioButtonService;
+        private System.Windows.Forms.RadioButton radioButtonNoService;
+        private System.Windows.Forms.Label label7;
     }
 }

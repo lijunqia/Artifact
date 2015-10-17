@@ -27,7 +27,7 @@
     <ProductName>喊单神器</ProductName>
     <PublisherName>中亿</PublisherName>
     <ApplicationRevision>0</ApplicationRevision>
-    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <ApplicationVersion>1.0.1.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
     <BootstrapperEnabled>true</BootstrapperEnabled>
@@ -88,6 +88,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Api\Chat.cs" />
     <Compile Include="Api\Message.cs" />
     <Compile Include="Api\Extra.cs" />
     <Compile Include="Api\Response.cs" />

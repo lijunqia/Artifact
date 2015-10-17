@@ -119,7 +119,7 @@ namespace Artifact
                 //获取RichTextBox控件中鼠标焦点的索引位置 
                 int startPosition = this.richTextBoxText.SelectionStart;
                 //从鼠标焦点处开始选中几个字符
-                this.richTextBoxText.SelectionLength = 2;
+                //this.richTextBoxText.SelectionLength = 2;
                 //将图片粘贴到鼠标焦点位置(由于有选中2个字符，所以那2个字符会被图片覆盖)
                 this.richTextBoxText.Paste();
                 Clipboard.Clear();

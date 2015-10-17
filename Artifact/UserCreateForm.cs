@@ -45,6 +45,9 @@ namespace Artifact
                 user.user_email = "";
                 user.user_mobile = "";
 
+                if (this.radioButtonService.Checked == true)
+                    user.user_is_service = "1";
+
                 Artifact.Api.User user_add = res.UserCreate(user);
                 if (user_add != null)
                 {

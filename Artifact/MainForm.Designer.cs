@@ -32,6 +32,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.buttonSearch = new System.Windows.Forms.Button();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.buttonChat = new System.Windows.Forms.Button();
             this.buttonExit = new System.Windows.Forms.Button();
             this.groupBoxMessage = new System.Windows.Forms.GroupBox();
             this.buttonMessageList = new System.Windows.Forms.Button();
@@ -46,7 +47,6 @@
             this.textBoxKey = new System.Windows.Forms.TextBox();
             this.richTextBoxMessageList = new System.Windows.Forms.RichTextBox();
             this.timerRefresh = new System.Windows.Forms.Timer(this.components);
-            this.buttonChat = new System.Windows.Forms.Button();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
@@ -96,6 +96,18 @@
             this.splitContainer1.SplitterDistance = 250;
             this.splitContainer1.SplitterWidth = 1;
             this.splitContainer1.TabIndex = 6;
+            // 
+            // buttonChat
+            // 
+            this.buttonChat.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonChat.ForeColor = System.Drawing.Color.Transparent;
+            this.buttonChat.Location = new System.Drawing.Point(71, 208);
+            this.buttonChat.Name = "buttonChat";
+            this.buttonChat.Size = new System.Drawing.Size(100, 23);
+            this.buttonChat.TabIndex = 8;
+            this.buttonChat.Text = "联系客服(&C)";
+            this.buttonChat.UseVisualStyleBackColor = true;
+            this.buttonChat.Click += new System.EventHandler(this.buttonChat_Click);
             // 
             // buttonExit
             // 
@@ -265,18 +277,6 @@
             this.timerRefresh.Enabled = true;
             this.timerRefresh.Interval = 5000;
             this.timerRefresh.Tick += new System.EventHandler(this.timerRefresh_Tick);
-            // 
-            // buttonChat
-            // 
-            this.buttonChat.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonChat.ForeColor = System.Drawing.Color.Transparent;
-            this.buttonChat.Location = new System.Drawing.Point(71, 208);
-            this.buttonChat.Name = "buttonChat";
-            this.buttonChat.Size = new System.Drawing.Size(100, 23);
-            this.buttonChat.TabIndex = 8;
-            this.buttonChat.Text = "联系客服(&C)";
-            this.buttonChat.UseVisualStyleBackColor = true;
-            this.buttonChat.Click += new System.EventHandler(this.buttonChat_Click);
             // 
             // MainForm
             // 
