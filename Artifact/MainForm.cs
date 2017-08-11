@@ -19,18 +19,30 @@ using System.Drawing.Imaging;
 using System.Threading;
 
 using System.Text.RegularExpressions;
+using System.Security.Permissions;
+
 namespace Artifact
 {
+    [PermissionSet(SecurityAction.Demand, Name = "FullTrust")]
+    [System.Runtime.InteropServices.ComVisibleAttribute(true)]
+
     public partial class MainForm : Form
     {
         private int maxId = 0;
 
+        [DllImport("user32.dll")]
+        public static extern bool ReleaseCapture();
+        [DllImport("user32.dll")]
+        public static extern bool SendMessage(IntPtr hwnd, int wMsg, int wParam, int lParam);
+        public const int WM_SYSCOMMAND = 0x0112;
+        public const int SC_MOVE = 0xF010;
+        public const int HTCAPTION = 0x0002;
+        [DllImport("kernel32.dll")]
+        public static extern bool Beep(int frequency, int duration);
+
         public MainForm()
         {
             InitializeComponent();
-            Response res = new Response();
-            this.webBrowserNotice.Navigate(new Uri(res.getHtmlNotice()));
-            this.webBrowserMessage.Navigate(new Uri(res.getHtmlMessage()));
         }
 
 
@@ -70,15 +82,28 @@ namespace Artifact
                     this.buttonChat.Visible = true;
                 }
                 */
-               // this.setMessage(10);
+                // this.setMessage(10);
 
+                Response res = new Response();
+                // this.webBrowserNotice.Navigate(new Uri(res.getHtmlNotice()));
+                this.webBrowserMessage.ObjectForScripting = this;
+                this.webBrowserMessage.Navigate(new Uri(res.getHtmlMessage()));
+                this.labelName.Text = Program.user.user_name;
 
+                this.richTextBoxMessage.Focus();
             }
             catch (Exception )
             {
                 //MessageBox.Show("获取信息出错！" + ex.Message);
             }
 
+        }
+
+        public void showWindow()
+        {
+            Beep(500, 700);
+            if (this.WindowState == FormWindowState.Minimized)
+                this.WindowState = FormWindowState.Normal;
         }
 
         private void timerRefresh_Tick(object sender, EventArgs e)
@@ -276,7 +301,8 @@ namespace Artifact
                 if (message_add != null)
                 {
                     this.richTextBoxMessage.Text = "";
- //                   MessageBox.Show("发布成功！", "提示信息");
+                    this.richTextBoxMessage.Focus();
+                    //MessageBox.Show("发布成功！", "提示信息");
                 }
                 else
                     MessageBox.Show("发布失败！" + res.message, "提示信息");
@@ -315,6 +341,49 @@ namespace Artifact
             }
             Thread.Sleep(300);
             this.Show();
+        }
+
+        private void MainForm_MouseDown(object sender, MouseEventArgs e)
+        {
+
+
+            ReleaseCapture();
+
+            SendMessage(this.Handle, WM_SYSCOMMAND, SC_MOVE + HTCAPTION, 0);
+        }
+
+        private void splitContainer3_Panel2_MouseDown(object sender, MouseEventArgs e)
+        {
+
+
+            ReleaseCapture();
+
+            SendMessage(this.Handle, WM_SYSCOMMAND, SC_MOVE + HTCAPTION, 0);
+        }
+
+        private void splitContainer1_Panel1_MouseDown(object sender, MouseEventArgs e)
+        {
+
+            ReleaseCapture();
+
+            SendMessage(this.Handle, WM_SYSCOMMAND, SC_MOVE + HTCAPTION, 0);
+        }
+
+        private void textBoxKey_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            buttonSearch_Click(sender, e);
+        }
+
+        private void buttonMin_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
+        }
+
+        private void buttonNotice_Click(object sender, EventArgs e)
+        {
+
+            NoticeForm frm = new NoticeForm();
+            frm.Show();
         }
     }
 

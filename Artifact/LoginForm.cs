@@ -64,20 +64,6 @@ namespace Artifact
             }
         }
 
-        private void linkLabelSite_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            System.Diagnostics.Process.Start("iexplore.exe", "http://www.zhongyi8888.com/");
-        }
-
-        private void linkLabelQQ_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            System.Diagnostics.Process.Start("iexplore.exe", "http://wpa.qq.com/msgrd?v=3&uin=172868572&site=http://www.zhongyi8888.com&menu=yes");
-        }
-
-        private void LoginForm_HelpButtonClicked(object sender, CancelEventArgs e)
-        {
-            System.Diagnostics.Process.Start("iexplore.exe", "http://wpa.qq.com/msgrd?v=3&uin=172868572&site=http://www.zhongyi8888.com&menu=yes");
-        }
 
         private void LoginForm_MouseDown(object sender, MouseEventArgs e)
         {
@@ -92,30 +78,7 @@ namespace Artifact
 
             this.WindowState = FormWindowState.Minimized;
         }
-
-        private void linkLabel3_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            System.Diagnostics.Process.Start("iexplore.exe", "http://wpa.qq.com/msgrd?v=3&uin=496389631&site=http://www.zhongyi8888.com&menu=yes");
-
-        }
-
-        private void linkLabel2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            System.Diagnostics.Process.Start("iexplore.exe", "http://wpa.qq.com/msgrd?v=3&uin=292997078&site=http://www.zhongyi8888.com&menu=yes");
-
-        }
-
-        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            System.Diagnostics.Process.Start("iexplore.exe", "http://wpa.qq.com/msgrd?v=3&uin=402394279&site=http://www.zhongyi8888.com&menu=yes");
-
-        }
-
-        private void linkLabel4_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            System.Diagnostics.Process.Start("iexplore.exe", "http://wpa.qq.com/msgrd?v=3&uin=369679590&site=http://www.zhongyi8888.com&menu=yes");
-
-        }
+        
 
         private void textBoxPassword_KeyDown(object sender, KeyEventArgs e)
         {

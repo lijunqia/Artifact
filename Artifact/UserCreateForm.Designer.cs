@@ -229,6 +229,7 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "UserCreateForm";
+            this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "添加用户";
             this.TopMost = true;

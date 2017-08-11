@@ -128,6 +128,12 @@
     <Compile Include="MessageListForm.Designer.cs">
       <DependentUpon>MessageListForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="NoticeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NoticeForm.Designer.cs">
+      <DependentUpon>NoticeForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
@@ -173,6 +179,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MessageListForm.resx">
       <DependentUpon>MessageListForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NoticeForm.resx">
+      <DependentUpon>NoticeForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -224,6 +233,11 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="favicon.ico" />
+    <None Include="Resources\3.png" />
+    <None Include="Resources\2.png" />
+    <None Include="Resources\search_ico.png" />
+    <None Include="Resources\1.jpg" />
+    <None Include="Resources\chat_bg.jpg" />
     <None Include="Resources\bg.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

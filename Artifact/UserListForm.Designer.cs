@@ -35,20 +35,6 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UserListForm));
             this.dataGridViewUserList = new System.Windows.Forms.DataGridView();
-            this.contextMenuStripUser = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.toolStripMenuItemDelete = new System.Windows.Forms.ToolStripMenuItem();
-            this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            this.labelLoading = new System.Windows.Forms.Label();
-            this.buttonLast = new System.Windows.Forms.Button();
-            this.buttonFirst = new System.Windows.Forms.Button();
-            this.buttonNext = new System.Windows.Forms.Button();
-            this.labelTotalPage = new System.Windows.Forms.Label();
-            this.textBoxPage = new System.Windows.Forms.TextBox();
-            this.buttonPre = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.buttonSearch = new System.Windows.Forms.Button();
-            this.textBoxKey = new System.Windows.Forms.TextBox();
-            this.userBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.useridDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.roleidDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.usercodeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -65,12 +51,27 @@
             this.userisexpDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.usercreatedDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.userupdatedDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.contextMenuStripUser = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.toolStripMenuItemDelete = new System.Windows.Forms.ToolStripMenuItem();
+            this.userBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.labelLoading = new System.Windows.Forms.Label();
+            this.buttonLast = new System.Windows.Forms.Button();
+            this.buttonFirst = new System.Windows.Forms.Button();
+            this.buttonNext = new System.Windows.Forms.Button();
+            this.labelTotalPage = new System.Windows.Forms.Label();
+            this.textBoxPage = new System.Windows.Forms.TextBox();
+            this.buttonPre = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.buttonSearch = new System.Windows.Forms.Button();
+            this.textBoxKey = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewUserList)).BeginInit();
             this.contextMenuStripUser.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.userBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.userBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGridViewUserList
@@ -132,19 +133,125 @@
             this.dataGridViewUserList.TabIndex = 0;
             this.dataGridViewUserList.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewUserList_CellValueChanged);
             // 
+            // useridDataGridViewTextBoxColumn
+            // 
+            this.useridDataGridViewTextBoxColumn.DataPropertyName = "user_id";
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.useridDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle2;
+            this.useridDataGridViewTextBoxColumn.HeaderText = "ID";
+            this.useridDataGridViewTextBoxColumn.Name = "useridDataGridViewTextBoxColumn";
+            this.useridDataGridViewTextBoxColumn.Width = 50;
+            // 
+            // roleidDataGridViewTextBoxColumn
+            // 
+            this.roleidDataGridViewTextBoxColumn.DataPropertyName = "role_id";
+            this.roleidDataGridViewTextBoxColumn.HeaderText = "角色";
+            this.roleidDataGridViewTextBoxColumn.Name = "roleidDataGridViewTextBoxColumn";
+            this.roleidDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.roleidDataGridViewTextBoxColumn.Width = 80;
+            // 
+            // usercodeDataGridViewTextBoxColumn
+            // 
+            this.usercodeDataGridViewTextBoxColumn.DataPropertyName = "user_code";
+            this.usercodeDataGridViewTextBoxColumn.HeaderText = "账号";
+            this.usercodeDataGridViewTextBoxColumn.Name = "usercodeDataGridViewTextBoxColumn";
+            // 
+            // user_password
+            // 
+            this.user_password.DataPropertyName = "user_password";
+            this.user_password.HeaderText = "密码";
+            this.user_password.Name = "user_password";
+            // 
+            // userexpireDataGridViewTextBoxColumn
+            // 
+            this.userexpireDataGridViewTextBoxColumn.DataPropertyName = "user_expire";
+            this.userexpireDataGridViewTextBoxColumn.HeaderText = "过期时间";
+            this.userexpireDataGridViewTextBoxColumn.Name = "userexpireDataGridViewTextBoxColumn";
+            this.userexpireDataGridViewTextBoxColumn.Width = 130;
+            // 
+            // usernameDataGridViewTextBoxColumn
+            // 
+            this.usernameDataGridViewTextBoxColumn.DataPropertyName = "user_name";
+            this.usernameDataGridViewTextBoxColumn.HeaderText = "姓名";
+            this.usernameDataGridViewTextBoxColumn.Name = "usernameDataGridViewTextBoxColumn";
+            // 
+            // usermobileDataGridViewTextBoxColumn
+            // 
+            this.usermobileDataGridViewTextBoxColumn.DataPropertyName = "user_mobile";
+            this.usermobileDataGridViewTextBoxColumn.HeaderText = "手机";
+            this.usermobileDataGridViewTextBoxColumn.Name = "usermobileDataGridViewTextBoxColumn";
+            // 
+            // useremailDataGridViewTextBoxColumn
+            // 
+            this.useremailDataGridViewTextBoxColumn.DataPropertyName = "user_email";
+            this.useremailDataGridViewTextBoxColumn.HeaderText = "邮箱";
+            this.useremailDataGridViewTextBoxColumn.Name = "useremailDataGridViewTextBoxColumn";
+            // 
+            // userremarkDataGridViewTextBoxColumn
+            // 
+            this.userremarkDataGridViewTextBoxColumn.DataPropertyName = "user_remark";
+            this.userremarkDataGridViewTextBoxColumn.HeaderText = "备注";
+            this.userremarkDataGridViewTextBoxColumn.Name = "userremarkDataGridViewTextBoxColumn";
+            // 
+            // user_is_service
+            // 
+            this.user_is_service.DataPropertyName = "user_is_service";
+            this.user_is_service.HeaderText = "是否客服";
+            this.user_is_service.Name = "user_is_service";
+            // 
+            // userlasttimeDataGridViewTextBoxColumn
+            // 
+            this.userlasttimeDataGridViewTextBoxColumn.DataPropertyName = "user_last_time";
+            this.userlasttimeDataGridViewTextBoxColumn.HeaderText = "登录时间";
+            this.userlasttimeDataGridViewTextBoxColumn.Name = "userlasttimeDataGridViewTextBoxColumn";
+            // 
+            // userlastipDataGridViewTextBoxColumn
+            // 
+            this.userlastipDataGridViewTextBoxColumn.DataPropertyName = "user_last_ip";
+            this.userlastipDataGridViewTextBoxColumn.HeaderText = "登录IP";
+            this.userlastipDataGridViewTextBoxColumn.Name = "userlastipDataGridViewTextBoxColumn";
+            // 
+            // userloginnumDataGridViewTextBoxColumn
+            // 
+            this.userloginnumDataGridViewTextBoxColumn.DataPropertyName = "user_login_num";
+            this.userloginnumDataGridViewTextBoxColumn.HeaderText = "次数";
+            this.userloginnumDataGridViewTextBoxColumn.Name = "userloginnumDataGridViewTextBoxColumn";
+            // 
+            // userisexpDataGridViewTextBoxColumn
+            // 
+            this.userisexpDataGridViewTextBoxColumn.DataPropertyName = "user_is_exp";
+            this.userisexpDataGridViewTextBoxColumn.HeaderText = "是否体验";
+            this.userisexpDataGridViewTextBoxColumn.Name = "userisexpDataGridViewTextBoxColumn";
+            // 
+            // usercreatedDataGridViewTextBoxColumn
+            // 
+            this.usercreatedDataGridViewTextBoxColumn.DataPropertyName = "user_created";
+            this.usercreatedDataGridViewTextBoxColumn.HeaderText = "添加时间";
+            this.usercreatedDataGridViewTextBoxColumn.Name = "usercreatedDataGridViewTextBoxColumn";
+            // 
+            // userupdatedDataGridViewTextBoxColumn
+            // 
+            this.userupdatedDataGridViewTextBoxColumn.DataPropertyName = "user_updated";
+            this.userupdatedDataGridViewTextBoxColumn.HeaderText = "更新时间";
+            this.userupdatedDataGridViewTextBoxColumn.Name = "userupdatedDataGridViewTextBoxColumn";
+            // 
             // contextMenuStripUser
             // 
             this.contextMenuStripUser.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripMenuItemDelete});
             this.contextMenuStripUser.Name = "contextMenuStripUser";
-            this.contextMenuStripUser.Size = new System.Drawing.Size(137, 26);
+            this.contextMenuStripUser.Size = new System.Drawing.Size(142, 26);
             // 
             // toolStripMenuItemDelete
             // 
             this.toolStripMenuItemDelete.Name = "toolStripMenuItemDelete";
-            this.toolStripMenuItemDelete.Size = new System.Drawing.Size(136, 22);
+            this.toolStripMenuItemDelete.Size = new System.Drawing.Size(141, 22);
             this.toolStripMenuItemDelete.Text = "删除用户(&D)";
             this.toolStripMenuItemDelete.Click += new System.EventHandler(this.toolStripMenuItemDelete_Click);
+            // 
+            // userBindingSource
+            // 
+            this.userBindingSource.DataSource = typeof(Artifact.Api.User);
             // 
             // splitContainer1
             // 
@@ -280,112 +387,6 @@
             this.textBoxKey.Size = new System.Drawing.Size(125, 21);
             this.textBoxKey.TabIndex = 0;
             // 
-            // userBindingSource
-            // 
-            this.userBindingSource.DataSource = typeof(Artifact.Api.User);
-            // 
-            // useridDataGridViewTextBoxColumn
-            // 
-            this.useridDataGridViewTextBoxColumn.DataPropertyName = "user_id";
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.useridDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle2;
-            this.useridDataGridViewTextBoxColumn.HeaderText = "ID";
-            this.useridDataGridViewTextBoxColumn.Name = "useridDataGridViewTextBoxColumn";
-            this.useridDataGridViewTextBoxColumn.Width = 50;
-            // 
-            // roleidDataGridViewTextBoxColumn
-            // 
-            this.roleidDataGridViewTextBoxColumn.DataPropertyName = "role_id";
-            this.roleidDataGridViewTextBoxColumn.HeaderText = "角色";
-            this.roleidDataGridViewTextBoxColumn.Name = "roleidDataGridViewTextBoxColumn";
-            this.roleidDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.roleidDataGridViewTextBoxColumn.Width = 80;
-            // 
-            // usercodeDataGridViewTextBoxColumn
-            // 
-            this.usercodeDataGridViewTextBoxColumn.DataPropertyName = "user_code";
-            this.usercodeDataGridViewTextBoxColumn.HeaderText = "账号";
-            this.usercodeDataGridViewTextBoxColumn.Name = "usercodeDataGridViewTextBoxColumn";
-            // 
-            // user_password
-            // 
-            this.user_password.DataPropertyName = "user_password";
-            this.user_password.HeaderText = "密码";
-            this.user_password.Name = "user_password";
-            // 
-            // userexpireDataGridViewTextBoxColumn
-            // 
-            this.userexpireDataGridViewTextBoxColumn.DataPropertyName = "user_expire";
-            this.userexpireDataGridViewTextBoxColumn.HeaderText = "过期时间";
-            this.userexpireDataGridViewTextBoxColumn.Name = "userexpireDataGridViewTextBoxColumn";
-            this.userexpireDataGridViewTextBoxColumn.Width = 130;
-            // 
-            // usernameDataGridViewTextBoxColumn
-            // 
-            this.usernameDataGridViewTextBoxColumn.DataPropertyName = "user_name";
-            this.usernameDataGridViewTextBoxColumn.HeaderText = "姓名";
-            this.usernameDataGridViewTextBoxColumn.Name = "usernameDataGridViewTextBoxColumn";
-            // 
-            // usermobileDataGridViewTextBoxColumn
-            // 
-            this.usermobileDataGridViewTextBoxColumn.DataPropertyName = "user_mobile";
-            this.usermobileDataGridViewTextBoxColumn.HeaderText = "手机";
-            this.usermobileDataGridViewTextBoxColumn.Name = "usermobileDataGridViewTextBoxColumn";
-            // 
-            // useremailDataGridViewTextBoxColumn
-            // 
-            this.useremailDataGridViewTextBoxColumn.DataPropertyName = "user_email";
-            this.useremailDataGridViewTextBoxColumn.HeaderText = "邮箱";
-            this.useremailDataGridViewTextBoxColumn.Name = "useremailDataGridViewTextBoxColumn";
-            // 
-            // userremarkDataGridViewTextBoxColumn
-            // 
-            this.userremarkDataGridViewTextBoxColumn.DataPropertyName = "user_remark";
-            this.userremarkDataGridViewTextBoxColumn.HeaderText = "备注";
-            this.userremarkDataGridViewTextBoxColumn.Name = "userremarkDataGridViewTextBoxColumn";
-            // 
-            // user_is_service
-            // 
-            this.user_is_service.DataPropertyName = "user_is_service";
-            this.user_is_service.HeaderText = "是否客服";
-            this.user_is_service.Name = "user_is_service";
-            // 
-            // userlasttimeDataGridViewTextBoxColumn
-            // 
-            this.userlasttimeDataGridViewTextBoxColumn.DataPropertyName = "user_last_time";
-            this.userlasttimeDataGridViewTextBoxColumn.HeaderText = "登录时间";
-            this.userlasttimeDataGridViewTextBoxColumn.Name = "userlasttimeDataGridViewTextBoxColumn";
-            // 
-            // userlastipDataGridViewTextBoxColumn
-            // 
-            this.userlastipDataGridViewTextBoxColumn.DataPropertyName = "user_last_ip";
-            this.userlastipDataGridViewTextBoxColumn.HeaderText = "登录IP";
-            this.userlastipDataGridViewTextBoxColumn.Name = "userlastipDataGridViewTextBoxColumn";
-            // 
-            // userloginnumDataGridViewTextBoxColumn
-            // 
-            this.userloginnumDataGridViewTextBoxColumn.DataPropertyName = "user_login_num";
-            this.userloginnumDataGridViewTextBoxColumn.HeaderText = "次数";
-            this.userloginnumDataGridViewTextBoxColumn.Name = "userloginnumDataGridViewTextBoxColumn";
-            // 
-            // userisexpDataGridViewTextBoxColumn
-            // 
-            this.userisexpDataGridViewTextBoxColumn.DataPropertyName = "user_is_exp";
-            this.userisexpDataGridViewTextBoxColumn.HeaderText = "是否体验";
-            this.userisexpDataGridViewTextBoxColumn.Name = "userisexpDataGridViewTextBoxColumn";
-            // 
-            // usercreatedDataGridViewTextBoxColumn
-            // 
-            this.usercreatedDataGridViewTextBoxColumn.DataPropertyName = "user_created";
-            this.usercreatedDataGridViewTextBoxColumn.HeaderText = "添加时间";
-            this.usercreatedDataGridViewTextBoxColumn.Name = "usercreatedDataGridViewTextBoxColumn";
-            // 
-            // userupdatedDataGridViewTextBoxColumn
-            // 
-            this.userupdatedDataGridViewTextBoxColumn.DataPropertyName = "user_updated";
-            this.userupdatedDataGridViewTextBoxColumn.HeaderText = "更新时间";
-            this.userupdatedDataGridViewTextBoxColumn.Name = "userupdatedDataGridViewTextBoxColumn";
-            // 
             // UserListForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -395,17 +396,19 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "UserListForm";
+            this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "管理用户";
             this.TopMost = true;
             this.Load += new System.EventHandler(this.UserListForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewUserList)).EndInit();
             this.contextMenuStripUser.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.userBindingSource)).EndInit();
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel1.PerformLayout();
             this.splitContainer1.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.userBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }

@@ -52,6 +52,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewMessageList)).BeginInit();
             this.contextMenuStripManage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.messageBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
@@ -118,12 +119,12 @@
             this.contextMenuStripManage.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripMenuItemDelete});
             this.contextMenuStripManage.Name = "contextMenuStripManage";
-            this.contextMenuStripManage.Size = new System.Drawing.Size(137, 26);
+            this.contextMenuStripManage.Size = new System.Drawing.Size(142, 26);
             // 
             // toolStripMenuItemDelete
             // 
             this.toolStripMenuItemDelete.Name = "toolStripMenuItemDelete";
-            this.toolStripMenuItemDelete.Size = new System.Drawing.Size(136, 22);
+            this.toolStripMenuItemDelete.Size = new System.Drawing.Size(141, 22);
             this.toolStripMenuItemDelete.Text = "删除信息(&D)";
             this.toolStripMenuItemDelete.Click += new System.EventHandler(this.toolStripMenuItemDelete_Click);
             // 
@@ -274,6 +275,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "MessageListForm";
+            this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "信息列表";
             this.TopMost = true;
@@ -284,6 +286,7 @@
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel1.PerformLayout();
             this.splitContainer1.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
             this.ResumeLayout(false);
 
