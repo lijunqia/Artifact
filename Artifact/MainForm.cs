@@ -13,6 +13,11 @@ using System.IO;
 //using Newtonsoft.Json.Linq;
 using Artifact.Api;
 
+
+using System.Runtime.InteropServices;
+using System.Drawing.Imaging;
+using System.Threading;
+
 using System.Text.RegularExpressions;
 namespace Artifact
 {
@@ -23,6 +28,9 @@ namespace Artifact
         public MainForm()
         {
             InitializeComponent();
+            Response res = new Response();
+            this.webBrowserNotice.Navigate(new Uri(res.getHtmlNotice()));
+            this.webBrowserMessage.Navigate(new Uri(res.getHtmlMessage()));
         }
 
 
@@ -62,7 +70,7 @@ namespace Artifact
                     this.buttonChat.Visible = true;
                 }
                 */
-                this.setMessage(10);
+               // this.setMessage(10);
 
 
             }
@@ -75,7 +83,7 @@ namespace Artifact
 
         private void timerRefresh_Tick(object sender, EventArgs e)
         {
-            this.setMessage(20);
+            //this.setMessage(20);
 
         }
         /// <summary>
@@ -107,9 +115,10 @@ namespace Artifact
                     {
 
                         string url = @match.Groups["imgUrl"].Value;
-                        Bitmap bmp = new Bitmap((new System.Net.WebClient()).OpenRead(url));
+                        //Bitmap bmp = new Bitmap((new System.Net.WebClient()).OpenRead(url));
+                        Image bmp = Image.FromFile(url);
                         Clipboard.SetImage(bmp);
-                        string src = "<img src='" + url + "' />";
+                        string src = "<img src='" + url + "' />"; 
                         int pos = this.richTextBoxMessageList.Find(src);
                         this.richTextBoxMessageList.Select(pos, src.Length);
                         this.richTextBoxMessageList.Paste();
@@ -201,6 +210,112 @@ namespace Artifact
 
         }
 
+        private void buttonSend_Click(object sender, EventArgs e)
+        {
+            if (this.richTextBoxMessage.Text == "")
+            {
+                //MessageBox.Show("请填写信息。", "提示信息");
+                this.labelTips.Text = "请填写信息";
+                this.richTextBoxMessage.Focus();
+                return;
+            }
+
+            try
+            {
+                this.labelTips.Text = "正在发布中。。。。";
+                Response res = new Response();
+                int exp =  0;
+                Artifact.Api.Message message = new Api.Message();
+                message.message_is_exp = exp.ToString();
+                string filePath = Application.StartupPath + "\\snap\\" + DateTime.Now.ToString("yyyyMMdd") + "\\";//存放到相对路径
+
+                Random seed = new Random();
+
+
+                if (!Directory.Exists(filePath))
+                {
+                    Directory.CreateDirectory(filePath);
+                }
+                string text = "";
+                for (int i = 0; i < this.richTextBoxMessage.TextLength; i++)
+                {
+                    this.richTextBoxMessage.Select(i, 1);
+                    RichTextBoxSelectionTypes rt = this.richTextBoxMessage.SelectionType;
+                    //MessageBox.Show(rt.ToString());
+                    if (rt == RichTextBoxSelectionTypes.Object)
+                    {
+                        this.labelTips.Text = "正在上传截图。。。。";
+                        //当然也可能是其它的类型
+                        //MessageBox.Show("这是一个图片");
+                        this.richTextBoxMessage.Copy();
+                        Image img = Clipboard.GetImage();
+                        if (img != null)
+                        {
+                            //string snapPath = filePath + DateTime.Now.ToString("HHmmss") + seed.Next(10, 99).ToString() + ".jpg";
+                            //img.Save(snapPath, ImageFormat.Jpeg);
+
+                            //上传到服务器
+                            Snap snap = res.MessageUpload(img);
+                            img.Dispose();
+
+                            if (snap != null)
+                            {
+                                text += "<img src='" + snap.url + "' />";
+                            }
+                        }
+                        this.labelTips.Text = "上传完成";
+                    }
+                    else
+                        text += this.richTextBoxMessage.SelectedText;
+
+                }
+
+                message.message_text = text;
+
+                Artifact.Api.Message message_add = res.MessageCreate(message);
+                if (message_add != null)
+                {
+                    this.richTextBoxMessage.Text = "";
+ //                   MessageBox.Show("发布成功！", "提示信息");
+                }
+                else
+                    MessageBox.Show("发布失败！" + res.message, "提示信息");
+
+                this.labelTips.Text = "";
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("获取信息出错！" + ex.Message);
+            }
+        }
+
+        private void buttonCaputre_Click(object sender, EventArgs e)
+        {
+
+            this.Hide();
+            Thread.Sleep(500);
+
+            Image img = new Bitmap(Screen.AllScreens[0].Bounds.Width, Screen.AllScreens[0].Bounds.Height);
+            Graphics g = Graphics.FromImage(img);
+            g.CopyFromScreen(new Point(0, 0), new Point(0, 0), Screen.AllScreens[0].Bounds.Size);
+
+            ScreenForm snap = new ScreenForm();
+            snap.BackgroundImage = img;
+
+            if (snap.ShowDialog() == DialogResult.OK)
+            {
+                //获取RichTextBox控件中鼠标焦点的索引位置 
+                int startPosition = this.richTextBoxMessage.SelectionStart;
+                //从鼠标焦点处开始选中几个字符
+                //this.richTextBoxText.SelectionLength = 2;
+                //将图片粘贴到鼠标焦点位置(由于有选中2个字符，所以那2个字符会被图片覆盖)
+                this.richTextBoxMessage.Paste();
+                Clipboard.Clear();
+            }
+            Thread.Sleep(300);
+            this.Show();
+        }
     }
 
 }

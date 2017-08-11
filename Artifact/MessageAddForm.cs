@@ -20,6 +20,8 @@ namespace Artifact
         public MessageAddForm()
         {
             InitializeComponent();
+            if (Int32.Parse(Program.user.role_id) >= 3)
+                this.checkBoxExp.Visible = false;
         }
 
         private void buttonAdd_Click(object sender, EventArgs e)
@@ -36,8 +38,10 @@ namespace Artifact
                 label1.Text = "正在发布中。。。。";
                 Response res = new Response();
                 int exp = this.checkBoxExp.Checked ? 1 : 0;
+                int notice = this.checkBoxNotice.Checked ? 1 : 0;
                 Artifact.Api.Message message = new Api.Message();
                 message.message_is_exp = exp.ToString();
+                message.message_type = notice.ToString(); 
                 string filePath = Application.StartupPath + "\\snap\\" + DateTime.Now.ToString("yyyyMMdd") + "\\";//存放到相对路径
 
                 Random seed = new Random();

@@ -6,7 +6,7 @@
       <Value Profile="(Default)">中亿喊单神器</Value>
     </Setting>
     <Setting Name="Website" Type="System.String" Scope="User">
-      <Value Profile="(Default)">http://www.zhongyi8888.com/</Value>
+      <Value Profile="(Default)">http://a.o9l.net/</Value>
     </Setting>
   </Settings>
 </SettingsFile>

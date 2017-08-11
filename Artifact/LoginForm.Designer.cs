@@ -48,7 +48,7 @@
             // 
             this.textBoxCode.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textBoxCode.Font = new System.Drawing.Font("宋体", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.textBoxCode.Location = new System.Drawing.Point(760, 581);
+            this.textBoxCode.Location = new System.Drawing.Point(204, 388);
             this.textBoxCode.Name = "textBoxCode";
             this.textBoxCode.Size = new System.Drawing.Size(181, 29);
             this.textBoxCode.TabIndex = 0;
@@ -57,7 +57,7 @@
             // 
             this.textBoxPassword.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textBoxPassword.Font = new System.Drawing.Font("宋体", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.textBoxPassword.Location = new System.Drawing.Point(760, 616);
+            this.textBoxPassword.Location = new System.Drawing.Point(504, 388);
             this.textBoxPassword.Name = "textBoxPassword";
             this.textBoxPassword.PasswordChar = '*';
             this.textBoxPassword.Size = new System.Drawing.Size(181, 29);
@@ -66,13 +66,13 @@
             // 
             // buttonSubmit
             // 
-            this.buttonSubmit.BackColor = System.Drawing.SystemColors.Desktop;
+            this.buttonSubmit.BackColor = System.Drawing.Color.Transparent;
             this.buttonSubmit.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.buttonSubmit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonSubmit.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.buttonSubmit.Location = new System.Drawing.Point(760, 651);
+            this.buttonSubmit.Location = new System.Drawing.Point(720, 388);
             this.buttonSubmit.Name = "buttonSubmit";
-            this.buttonSubmit.Size = new System.Drawing.Size(181, 33);
+            this.buttonSubmit.Size = new System.Drawing.Size(67, 29);
             this.buttonSubmit.TabIndex = 2;
             this.buttonSubmit.Text = "登录";
             this.buttonSubmit.UseVisualStyleBackColor = false;
@@ -81,22 +81,26 @@
             // label2
             // 
             this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("宋体", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label2.Location = new System.Drawing.Point(705, 621);
+            this.label2.ForeColor = System.Drawing.SystemColors.Control;
+            this.label2.Location = new System.Drawing.Point(429, 392);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(49, 19);
+            this.label2.Size = new System.Drawing.Size(69, 19);
             this.label2.TabIndex = 3;
-            this.label2.Text = "密码";
+            this.label2.Text = "密码：";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("宋体", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label1.Location = new System.Drawing.Point(705, 586);
+            this.label1.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.label1.Location = new System.Drawing.Point(129, 392);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(49, 19);
+            this.label1.Size = new System.Drawing.Size(69, 19);
             this.label1.TabIndex = 2;
-            this.label1.Text = "账号";
+            this.label1.Text = "账号：";
             // 
             // linkLabelSite
             // 
@@ -206,9 +210,9 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.BackgroundImage = global::Artifact.Properties.Resources.QQ图片20150914111949;
+            this.BackgroundImage = global::Artifact.Properties.Resources.bg;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.ClientSize = new System.Drawing.Size(1021, 691);
+            this.ClientSize = new System.Drawing.Size(1020, 500);
             this.Controls.Add(this.linkLabel4);
             this.Controls.Add(this.linkLabel3);
             this.Controls.Add(this.linkLabel2);
@@ -229,7 +233,7 @@
             this.MaximizeBox = false;
             this.Name = "LoginForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "中亿喊单神器登录";
+            this.Text = "登录";
             this.TopMost = true;
             this.HelpButtonClicked += new System.ComponentModel.CancelEventHandler(this.LoginForm_HelpButtonClicked);
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.LoginForm_MouseDown);

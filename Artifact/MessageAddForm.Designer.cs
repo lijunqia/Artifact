@@ -35,6 +35,8 @@
             this.buttonCaputre = new System.Windows.Forms.Button();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.label1 = new System.Windows.Forms.Label();
+            this.checkBoxNotice = new System.Windows.Forms.CheckBox();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
@@ -56,7 +58,7 @@
             this.buttonAdd.BackColor = System.Drawing.Color.Red;
             this.buttonAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonAdd.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.buttonAdd.Location = new System.Drawing.Point(178, 12);
+            this.buttonAdd.Location = new System.Drawing.Point(298, 12);
             this.buttonAdd.Name = "buttonAdd";
             this.buttonAdd.Size = new System.Drawing.Size(102, 23);
             this.buttonAdd.TabIndex = 1;
@@ -80,7 +82,7 @@
             this.buttonCaputre.BackColor = System.Drawing.Color.Red;
             this.buttonCaputre.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonCaputre.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.buttonCaputre.Location = new System.Drawing.Point(346, 12);
+            this.buttonCaputre.Location = new System.Drawing.Point(441, 12);
             this.buttonCaputre.Name = "buttonCaputre";
             this.buttonCaputre.Size = new System.Drawing.Size(102, 23);
             this.buttonCaputre.TabIndex = 3;
@@ -98,6 +100,7 @@
             // 
             // splitContainer1.Panel1
             // 
+            this.splitContainer1.Panel1.Controls.Add(this.checkBoxNotice);
             this.splitContainer1.Panel1.Controls.Add(this.label1);
             this.splitContainer1.Panel1.Controls.Add(this.buttonCaputre);
             this.splitContainer1.Panel1.Controls.Add(this.checkBoxExp);
@@ -118,6 +121,16 @@
             this.label1.Size = new System.Drawing.Size(0, 12);
             this.label1.TabIndex = 4;
             // 
+            // checkBoxNotice
+            // 
+            this.checkBoxNotice.AutoSize = true;
+            this.checkBoxNotice.Location = new System.Drawing.Point(180, 15);
+            this.checkBoxNotice.Name = "checkBoxNotice";
+            this.checkBoxNotice.Size = new System.Drawing.Size(72, 16);
+            this.checkBoxNotice.TabIndex = 5;
+            this.checkBoxNotice.Text = "通知信息";
+            this.checkBoxNotice.UseVisualStyleBackColor = true;
+            // 
             // MessageAddForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -132,6 +145,7 @@
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel1.PerformLayout();
             this.splitContainer1.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -145,5 +159,6 @@
         private System.Windows.Forms.Button buttonCaputre;
         private System.Windows.Forms.SplitContainer splitContainer1;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.CheckBox checkBoxNotice;
     }
 }

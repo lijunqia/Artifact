@@ -13,5 +13,6 @@ namespace Artifact.Api
         public string message_is_exp { get; set; }
         public string message_created { get; set; }
         public string message_updated { get; set; }
+        public string message_type { get; set; }
     }
 }

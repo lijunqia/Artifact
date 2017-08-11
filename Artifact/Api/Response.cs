@@ -21,23 +21,41 @@ namespace Artifact.Api
         public string items { get; set; }
         public string extra { get; set; }
 
-        protected string apiUserLogin = "http://api.zhongyi8888.com/site/login?";
-        protected string apiUserList = "http://api.zhongyi8888.com/user?";
-        protected string apiUserService = "http://api.zhongyi8888.com/user/service?";
-        protected string apiUserCreate = "http://api.zhongyi8888.com/user/create?";
-        protected string apiUserUpdate = "http://api.zhongyi8888.com/user/update?";
-        protected string apiUserDelete = "http://api.zhongyi8888.com/user/delete?";
-        protected string apiUserReset = "http://api.zhongyi8888.com/user/reset?";
-        protected string apiMessageCreate = "http://api.zhongyi8888.com/message/create?";
-        protected string apiMessageList = "http://api.zhongyi8888.com/message?";
-        protected string apiMessageDelete = "http://api.zhongyi8888.com/message/delete?";
-        protected string apiMessageUpload = "http://api.zhongyi8888.com/message/upload?";
-        protected string apiChatCreate = "http://api.zhongyi8888.com/chat/create?";
-        protected string apiChatList = "http://api.zhongyi8888.com/chat?";
-        protected string apiChatDelete = "http://api.zhongyi8888.com/chat/delete?";
-        protected string apiChatUpload = "http://api.zhongyi8888.com/chat/upload?";
-        protected string apiChatUser = "http://api.zhongyi8888.com/chat/user?";
+        protected string apiUserLogin = "http://a.o9l.net/site/login?";
+        protected string apiUserList = "http://a.o9l.net/user?";
+        protected string apiUserService = "http://a.o9l.net/user/service?";
+        protected string apiUserCreate = "http://a.o9l.net/user/create?";
+        protected string apiUserUpdate = "http://a.o9l.net/user/update?";
+        protected string apiUserDelete = "http://a.o9l.net/user/delete?";
+        protected string apiUserReset = "http://a.o9l.net/user/reset?";
+        protected string apiMessageCreate = "http://a.o9l.net/message/create?";
+        protected string apiMessageList = "http://a.o9l.net/message?";
+        protected string apiMessageDelete = "http://a.o9l.net/message/delete?";
+        protected string apiMessageUpload = "http://a.o9l.net/message/upload?";
+        protected string apiChatCreate = "http://a.o9l.net/chat/create?";
+        protected string apiChatList = "http://a.o9l.net/chat?";
+        protected string apiChatDelete = "http://a.o9l.net/chat/delete?";
+        protected string apiChatUpload = "http://a.o9l.net/chat/upload?";
+        protected string apiChatUser = "http://a.o9l.net/chat/user?";
+        protected string htmlMessage = "http://a.o9l.net/message/list?";
+        protected string htmlNotice = "http://a.o9l.net/notice/index?";
+        protected string apiNoticeCreate = "http://a.o9l.net/notice/create?";
+        protected string apiNoticeDelete = "http://a.o9l.net/notice/delete?";
+        protected string apiNoticeUpload = "http://a.o9l.net/notice/upload?";
 
+        public string getHtmlMessage()
+        {
+            User manageUser = Program.user;
+            string url = this.htmlMessage + "type=0&token=" + manageUser.token + "#buttom";
+            return url;
+        }
+
+        public string getHtmlNotice()
+        {
+            User manageUser = Program.user;
+            string url = this.htmlMessage + "type=1&token=" + manageUser.token + "#buttom";
+            return url;
+        }
         public List<User> ChatUser()
         {
             User manageUser = Program.user;
@@ -221,7 +239,7 @@ namespace Artifact.Api
         public Message MessageCreate(Message message)
         {
             User user = Program.user;
-            this.SendPostApi(this.apiMessageCreate, "token=" + user.token + "&text=" + message.message_text + "&exp=" + message.message_is_exp + "&time=" + message.message_time);
+            this.SendPostApi(this.apiMessageCreate, "token=" + user.token + "&text=" + message.message_text + "&exp=" + message.message_is_exp + "&time=" + message.message_time + "&type=" + message.message_type);
 
             try
             {
@@ -242,7 +260,7 @@ namespace Artifact.Api
         public List<Message> MessageList(int maxId = 0, int page = 0, int size = 20, string q = "")
         {
             User manageUser = Program.user;
-            this.SendApi(this.apiMessageList + "token=" + manageUser.token + "&min=" + maxId.ToString() + "&page=" + page + "&size=" + size + "&q=" + q);
+            this.SendApi(this.apiMessageList + "token=" + manageUser.token + "&min=" + maxId.ToString() + "&page=" + page + "&size=" + size + "&q=" + q + "&type=0" );
 
             try
             {
@@ -275,7 +293,7 @@ namespace Artifact.Api
         public List<User> UserService()
         {
             User manageUser = Program.user;
-            this.SendApi(this.apiUserService + "token=" + manageUser.token );
+            this.SendApi(this.apiUserService + "token=" + manageUser.token);
 
             try
             {
@@ -429,7 +447,7 @@ namespace Artifact.Api
                 if (this.items != "")
                 {
                     return Program.user = (User)JsonConvert.DeserializeObject(this.items, typeof(User));
-                    
+
                 }
                 return null;
             }
@@ -448,7 +466,7 @@ namespace Artifact.Api
                 client.Proxy = null;
                 Console.WriteLine(" uri " + uri);
                 string apiText = client.DownloadString(uri);
-                Console.WriteLine(" 返回 "+apiText);
+                Console.WriteLine(" 返回 " + apiText);
                 JObject jsonObj = JObject.Parse(apiText);
                 if (jsonObj.Count > 1)
                 {
@@ -541,7 +559,7 @@ namespace Artifact.Api
         /// </summary>
         /// <param name="uri">提交地址</param>
         /// <param name="data">参数，字符串，如aa=ff&ss=sdf</param>
-        public void SendPostApi(string uri,string data)
+        public void SendPostApi(string uri, string data)
         {
             try
             {
@@ -586,5 +604,6 @@ namespace Artifact.Api
                 Console.WriteLine(" API 出错 " + ex.Message);
             }
         }
+
     }
 }
