@@ -250,8 +250,10 @@ namespace Artifact
                 this.labelTips.Text = "正在发布中。。。。";
                 Response res = new Response();
                 int exp =  0;
+                int notice = this.checkBoxNotice.Checked ? 1 : 0;
                 Artifact.Api.Message message = new Api.Message();
                 message.message_is_exp = exp.ToString();
+                message.message_type = notice.ToString();
                 string filePath = Application.StartupPath + "\\snap\\" + DateTime.Now.ToString("yyyyMMdd") + "\\";//存放到相对路径
 
                 Random seed = new Random();

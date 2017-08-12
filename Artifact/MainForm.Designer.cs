@@ -56,6 +56,7 @@
             this.buttonSend = new System.Windows.Forms.Button();
             this.buttonExit = new System.Windows.Forms.Button();
             this.timerRefresh = new System.Windows.Forms.Timer(this.components);
+            this.checkBoxNotice = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -329,7 +330,7 @@
             // 
             this.splitContainer2.Panel2.Controls.Add(this.splitContainer3);
             this.splitContainer2.Size = new System.Drawing.Size(801, 659);
-            this.splitContainer2.SplitterDistance = 485;
+            this.splitContainer2.SplitterDistance = 488;
             this.splitContainer2.SplitterWidth = 1;
             this.splitContainer2.TabIndex = 3;
             // 
@@ -355,7 +356,7 @@
             this.webBrowserMessage.Location = new System.Drawing.Point(0, 0);
             this.webBrowserMessage.MinimumSize = new System.Drawing.Size(20, 20);
             this.webBrowserMessage.Name = "webBrowserMessage";
-            this.webBrowserMessage.Size = new System.Drawing.Size(801, 485);
+            this.webBrowserMessage.Size = new System.Drawing.Size(801, 488);
             this.webBrowserMessage.TabIndex = 2;
             this.webBrowserMessage.WebBrowserShortcutsEnabled = false;
             // 
@@ -378,7 +379,6 @@
             this.splitContainer3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.splitContainer3.FixedPanel = System.Windows.Forms.FixedPanel.Panel2;
             this.splitContainer3.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.splitContainer3.IsSplitterFixed = true;
             this.splitContainer3.Location = new System.Drawing.Point(0, 0);
             this.splitContainer3.Margin = new System.Windows.Forms.Padding(0);
             this.splitContainer3.Name = "splitContainer3";
@@ -391,15 +391,16 @@
             // 
             // splitContainer3.Panel2
             // 
+            this.splitContainer3.Panel2.Controls.Add(this.checkBoxNotice);
             this.splitContainer3.Panel2.Controls.Add(this.labelTips);
             this.splitContainer3.Panel2.Controls.Add(this.buttonCaputre);
             this.splitContainer3.Panel2.Controls.Add(this.buttonSend);
             this.splitContainer3.Panel2.Controls.Add(this.buttonExit);
             this.splitContainer3.Panel2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.splitContainer3.Panel2.MouseDown += new System.Windows.Forms.MouseEventHandler(this.splitContainer3_Panel2_MouseDown);
-            this.splitContainer3.Panel2MinSize = 40;
-            this.splitContainer3.Size = new System.Drawing.Size(801, 173);
-            this.splitContainer3.SplitterDistance = 135;
+            this.splitContainer3.Panel2MinSize = 50;
+            this.splitContainer3.Size = new System.Drawing.Size(801, 170);
+            this.splitContainer3.SplitterDistance = 119;
             this.splitContainer3.SplitterWidth = 1;
             this.splitContainer3.TabIndex = 1;
             this.splitContainer3.TabStop = false;
@@ -414,7 +415,7 @@
             this.richTextBoxMessage.Location = new System.Drawing.Point(10, 10);
             this.richTextBoxMessage.Margin = new System.Windows.Forms.Padding(5);
             this.richTextBoxMessage.Name = "richTextBoxMessage";
-            this.richTextBoxMessage.Size = new System.Drawing.Size(781, 115);
+            this.richTextBoxMessage.Size = new System.Drawing.Size(781, 99);
             this.richTextBoxMessage.TabIndex = 0;
             this.richTextBoxMessage.Text = "";
             // 
@@ -474,6 +475,17 @@
             this.timerRefresh.Enabled = true;
             this.timerRefresh.Interval = 5000;
             this.timerRefresh.Tick += new System.EventHandler(this.timerRefresh_Tick);
+            // 
+            // checkBoxNotice
+            // 
+            this.checkBoxNotice.AutoSize = true;
+            this.checkBoxNotice.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.checkBoxNotice.Location = new System.Drawing.Point(292, 12);
+            this.checkBoxNotice.Name = "checkBoxNotice";
+            this.checkBoxNotice.Size = new System.Drawing.Size(72, 16);
+            this.checkBoxNotice.TabIndex = 4;
+            this.checkBoxNotice.Text = "公告信息";
+            this.checkBoxNotice.UseVisualStyleBackColor = true;
             // 
             // MainForm
             // 
@@ -541,6 +553,7 @@
         private System.Windows.Forms.Label labelName;
         private System.Windows.Forms.Button buttonMin;
         private System.Windows.Forms.Button buttonNotice;
+        private System.Windows.Forms.CheckBox checkBoxNotice;
     }
 }
 
