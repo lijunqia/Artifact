@@ -28,17 +28,21 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(NoticeForm));
             this.webBrowserNotice = new System.Windows.Forms.WebBrowser();
             this.SuspendLayout();
             // 
             // webBrowserNotice
             // 
+            this.webBrowserNotice.AllowNavigation = false;
             this.webBrowserNotice.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.webBrowserNotice.IsWebBrowserContextMenuEnabled = false;
             this.webBrowserNotice.Location = new System.Drawing.Point(0, 0);
             this.webBrowserNotice.MinimumSize = new System.Drawing.Size(20, 20);
             this.webBrowserNotice.Name = "webBrowserNotice";
             this.webBrowserNotice.Size = new System.Drawing.Size(698, 503);
             this.webBrowserNotice.TabIndex = 0;
+            this.webBrowserNotice.WebBrowserShortcutsEnabled = false;
             // 
             // NoticeForm
             // 
@@ -46,6 +50,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(698, 503);
             this.Controls.Add(this.webBrowserNotice);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "NoticeForm";
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

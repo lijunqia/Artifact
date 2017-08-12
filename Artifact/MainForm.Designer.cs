@@ -32,10 +32,10 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.buttonSearch = new System.Windows.Forms.Button();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.buttonNotice = new System.Windows.Forms.Button();
             this.labelName = new System.Windows.Forms.Label();
             this.pictureBoxAvatar = new System.Windows.Forms.PictureBox();
             this.buttonChat = new System.Windows.Forms.Button();
-            this.buttonExit = new System.Windows.Forms.Button();
             this.groupBoxMessage = new System.Windows.Forms.GroupBox();
             this.buttonMessageList = new System.Windows.Forms.Button();
             this.buttonMessageAdd = new System.Windows.Forms.Button();
@@ -46,6 +46,7 @@
             this.buttonResetPassword = new System.Windows.Forms.Button();
             this.textBoxKey = new System.Windows.Forms.TextBox();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
+            this.buttonMin = new System.Windows.Forms.Button();
             this.webBrowserMessage = new System.Windows.Forms.WebBrowser();
             this.richTextBoxMessageList = new System.Windows.Forms.RichTextBox();
             this.splitContainer3 = new System.Windows.Forms.SplitContainer();
@@ -53,9 +54,8 @@
             this.labelTips = new System.Windows.Forms.Label();
             this.buttonCaputre = new System.Windows.Forms.Button();
             this.buttonSend = new System.Windows.Forms.Button();
+            this.buttonExit = new System.Windows.Forms.Button();
             this.timerRefresh = new System.Windows.Forms.Timer(this.components);
-            this.buttonMin = new System.Windows.Forms.Button();
-            this.buttonNotice = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -124,6 +124,22 @@
             this.splitContainer1.SplitterWidth = 1;
             this.splitContainer1.TabIndex = 6;
             // 
+            // buttonNotice
+            // 
+            this.buttonNotice.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(70)))), ((int)(((byte)(76)))));
+            this.buttonNotice.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(44)))), ((int)(((byte)(51)))));
+            this.buttonNotice.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonNotice.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.buttonNotice.Image = global::Artifact.Properties.Resources._3;
+            this.buttonNotice.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonNotice.Location = new System.Drawing.Point(-1, 220);
+            this.buttonNotice.Name = "buttonNotice";
+            this.buttonNotice.Size = new System.Drawing.Size(200, 55);
+            this.buttonNotice.TabIndex = 12;
+            this.buttonNotice.Text = "最新公告(&B)";
+            this.buttonNotice.UseVisualStyleBackColor = false;
+            this.buttonNotice.Click += new System.EventHandler(this.buttonNotice_Click);
+            // 
             // labelName
             // 
             this.labelName.AutoSize = true;
@@ -162,20 +178,6 @@
             this.buttonChat.Text = "联系客服(&K)";
             this.buttonChat.UseVisualStyleBackColor = false;
             this.buttonChat.Click += new System.EventHandler(this.buttonChat_Click);
-            // 
-            // buttonExit
-            // 
-            this.buttonExit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(70)))), ((int)(((byte)(76)))));
-            this.buttonExit.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(44)))), ((int)(((byte)(51)))));
-            this.buttonExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonExit.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.buttonExit.Location = new System.Drawing.Point(436, 5);
-            this.buttonExit.Name = "buttonExit";
-            this.buttonExit.Size = new System.Drawing.Size(100, 28);
-            this.buttonExit.TabIndex = 3;
-            this.buttonExit.Text = "关闭(&E)";
-            this.buttonExit.UseVisualStyleBackColor = false;
-            this.buttonExit.Click += new System.EventHandler(this.buttonExit_Click);
             // 
             // groupBoxMessage
             // 
@@ -249,6 +251,7 @@
             this.buttonUserOnline.TabIndex = 2;
             this.buttonUserOnline.Text = "在线用户(&O)";
             this.buttonUserOnline.UseVisualStyleBackColor = false;
+            this.buttonUserOnline.Click += new System.EventHandler(this.buttonUserOnline_Click);
             // 
             // buttonUserList
             // 
@@ -326,19 +329,33 @@
             // 
             this.splitContainer2.Panel2.Controls.Add(this.splitContainer3);
             this.splitContainer2.Size = new System.Drawing.Size(801, 659);
-            this.splitContainer2.SplitterDistance = 482;
+            this.splitContainer2.SplitterDistance = 485;
             this.splitContainer2.SplitterWidth = 1;
             this.splitContainer2.TabIndex = 3;
+            // 
+            // buttonMin
+            // 
+            this.buttonMin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(50)))), ((int)(((byte)(56)))));
+            this.buttonMin.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(44)))), ((int)(((byte)(51)))));
+            this.buttonMin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonMin.Location = new System.Drawing.Point(751, -1);
+            this.buttonMin.Name = "buttonMin";
+            this.buttonMin.Size = new System.Drawing.Size(28, 23);
+            this.buttonMin.TabIndex = 3;
+            this.buttonMin.Text = "--";
+            this.buttonMin.UseVisualStyleBackColor = false;
+            this.buttonMin.Click += new System.EventHandler(this.buttonMin_Click);
             // 
             // webBrowserMessage
             // 
             this.webBrowserMessage.AllowNavigation = false;
             this.webBrowserMessage.AllowWebBrowserDrop = false;
             this.webBrowserMessage.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.webBrowserMessage.IsWebBrowserContextMenuEnabled = false;
             this.webBrowserMessage.Location = new System.Drawing.Point(0, 0);
             this.webBrowserMessage.MinimumSize = new System.Drawing.Size(20, 20);
             this.webBrowserMessage.Name = "webBrowserMessage";
-            this.webBrowserMessage.Size = new System.Drawing.Size(801, 482);
+            this.webBrowserMessage.Size = new System.Drawing.Size(801, 485);
             this.webBrowserMessage.TabIndex = 2;
             this.webBrowserMessage.WebBrowserShortcutsEnabled = false;
             // 
@@ -381,7 +398,7 @@
             this.splitContainer3.Panel2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.splitContainer3.Panel2.MouseDown += new System.Windows.Forms.MouseEventHandler(this.splitContainer3_Panel2_MouseDown);
             this.splitContainer3.Panel2MinSize = 40;
-            this.splitContainer3.Size = new System.Drawing.Size(801, 176);
+            this.splitContainer3.Size = new System.Drawing.Size(801, 173);
             this.splitContainer3.SplitterDistance = 135;
             this.splitContainer3.SplitterWidth = 1;
             this.splitContainer3.TabIndex = 1;
@@ -438,40 +455,25 @@
             this.buttonSend.UseVisualStyleBackColor = false;
             this.buttonSend.Click += new System.EventHandler(this.buttonSend_Click);
             // 
+            // buttonExit
+            // 
+            this.buttonExit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(70)))), ((int)(((byte)(76)))));
+            this.buttonExit.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(44)))), ((int)(((byte)(51)))));
+            this.buttonExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonExit.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.buttonExit.Location = new System.Drawing.Point(436, 5);
+            this.buttonExit.Name = "buttonExit";
+            this.buttonExit.Size = new System.Drawing.Size(100, 28);
+            this.buttonExit.TabIndex = 3;
+            this.buttonExit.Text = "关闭(&E)";
+            this.buttonExit.UseVisualStyleBackColor = false;
+            this.buttonExit.Click += new System.EventHandler(this.buttonExit_Click);
+            // 
             // timerRefresh
             // 
             this.timerRefresh.Enabled = true;
             this.timerRefresh.Interval = 5000;
             this.timerRefresh.Tick += new System.EventHandler(this.timerRefresh_Tick);
-            // 
-            // buttonMin
-            // 
-            this.buttonMin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(50)))), ((int)(((byte)(56)))));
-            this.buttonMin.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(44)))), ((int)(((byte)(51)))));
-            this.buttonMin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonMin.Location = new System.Drawing.Point(751, -1);
-            this.buttonMin.Name = "buttonMin";
-            this.buttonMin.Size = new System.Drawing.Size(28, 23);
-            this.buttonMin.TabIndex = 3;
-            this.buttonMin.Text = "--";
-            this.buttonMin.UseVisualStyleBackColor = false;
-            this.buttonMin.Click += new System.EventHandler(this.buttonMin_Click);
-            // 
-            // buttonNotice
-            // 
-            this.buttonNotice.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(70)))), ((int)(((byte)(76)))));
-            this.buttonNotice.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(44)))), ((int)(((byte)(51)))));
-            this.buttonNotice.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonNotice.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.buttonNotice.Image = global::Artifact.Properties.Resources._3;
-            this.buttonNotice.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonNotice.Location = new System.Drawing.Point(-1, 220);
-            this.buttonNotice.Name = "buttonNotice";
-            this.buttonNotice.Size = new System.Drawing.Size(200, 55);
-            this.buttonNotice.TabIndex = 12;
-            this.buttonNotice.Text = "最新公告(&B)";
-            this.buttonNotice.UseVisualStyleBackColor = false;
-            this.buttonNotice.Click += new System.EventHandler(this.buttonNotice_Click);
             // 
             // MainForm
             // 

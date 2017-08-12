@@ -385,6 +385,11 @@ namespace Artifact
             NoticeForm frm = new NoticeForm();
             frm.Show();
         }
+
+        private void buttonUserOnline_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 
 }
