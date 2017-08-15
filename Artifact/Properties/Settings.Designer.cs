@@ -25,7 +25,7 @@ namespace Artifact.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("中亿喊单神器")]
+        [global::System.Configuration.DefaultSettingValueAttribute("聊天工具")]
         public string SoftName {
             get {
                 return ((string)(this["SoftName"]));

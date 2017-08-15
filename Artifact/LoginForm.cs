@@ -7,7 +7,6 @@ using System.Text;
 using System.Windows.Forms;
 
 using Artifact.Api;
-
 using System.Runtime.InteropServices;
 namespace Artifact
 {

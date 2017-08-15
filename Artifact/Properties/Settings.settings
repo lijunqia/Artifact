@@ -3,7 +3,7 @@
   <Profiles />
   <Settings>
     <Setting Name="SoftName" Type="System.String" Scope="Application">
-      <Value Profile="(Default)">中亿喊单神器</Value>
+      <Value Profile="(Default)">聊天工具</Value>
     </Setting>
     <Setting Name="Website" Type="System.String" Scope="User">
       <Value Profile="(Default)">http://a.o9l.net/</Value>

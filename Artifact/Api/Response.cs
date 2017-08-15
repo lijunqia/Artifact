@@ -39,6 +39,7 @@ namespace Artifact.Api
         protected string apiChatUser = "http://a.o9l.net/chat/user?";
         protected string htmlMessage = "http://a.o9l.net/message/list?";
         protected string htmlNotice = "http://a.o9l.net/notice/index?";
+        protected string htmlOnline = "http://a.o9l.net/session/index?";
         protected string apiNoticeCreate = "http://a.o9l.net/notice/create?";
         protected string apiNoticeDelete = "http://a.o9l.net/notice/delete?";
         protected string apiNoticeUpload = "http://a.o9l.net/notice/upload?";
@@ -54,6 +55,12 @@ namespace Artifact.Api
         {
             User manageUser = Program.user;
             string url = this.htmlMessage + "type=1&token=" + manageUser.token + "#buttom";
+            return url;
+        }
+        public string getHtmlOnline()
+        {
+            User manageUser = Program.user;
+            string url = this.htmlOnline + "token=" + manageUser.token + "#buttom";
             return url;
         }
         public List<User> ChatUser()

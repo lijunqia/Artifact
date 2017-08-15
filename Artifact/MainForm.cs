@@ -20,7 +20,7 @@ using System.Threading;
 
 using System.Text.RegularExpressions;
 using System.Security.Permissions;
-
+using CustomUIControls;
 namespace Artifact
 {
     [PermissionSet(SecurityAction.Demand, Name = "FullTrust")]
@@ -28,6 +28,9 @@ namespace Artifact
 
     public partial class MainForm : Form
     {
+        public ImageList imageList;
+        public ImageListPopup ilp;
+
         private int maxId = 0;
 
         [DllImport("user32.dll")]
@@ -43,6 +46,16 @@ namespace Artifact
         public MainForm()
         {
             InitializeComponent();
+            imageList = new ImageList();
+            imageList.ImageSize = new Size(32, 32);
+            imageList.ColorDepth = ColorDepth.Depth32Bit;       //32位的带alpha通道的可以直接透明 
+            imageList.Images.AddStrip(new Bitmap(GetType(), "face2.bmp"));  //加载资源表情图片           
+
+            ilp = new ImageListPopup();
+            ilp.Init(imageList, 8, 8, 10, 2);   //水平、垂直线间距，表情显示的列和行 
+            ilp.ItemClick += new ImageListPopupEventHandler(OnItemClicked);
+
+            this.buttonMin.BringToFront();
         }
 
 
@@ -71,6 +84,10 @@ namespace Artifact
                         this.groupBoxUser.Visible = false;
                         this.groupBoxMessage.Visible = false;
                         break;
+                }
+                if(Int32.Parse(Program.user.role_id)<=3)
+                {
+                    this.checkBoxNotice.Visible = true;
                 }
                 /*
                 if (Program.user.user_is_service == "1")
@@ -320,8 +337,8 @@ namespace Artifact
 
         private void buttonCaputre_Click(object sender, EventArgs e)
         {
-
-            this.Hide();
+            if(this.checkBoxCut.Checked)
+                this.Hide();
             Thread.Sleep(500);
 
             Image img = new Bitmap(Screen.AllScreens[0].Bounds.Width, Screen.AllScreens[0].Bounds.Height);
@@ -390,7 +407,30 @@ namespace Artifact
 
         private void buttonUserOnline_Click(object sender, EventArgs e)
         {
+            OnlineForm frm = new OnlineForm();
+            frm.Show();
 
+        }
+
+        /************************************************************************/
+        /* 表情按钮点击                                                                                     */
+        /************************************************************************/
+        private void buttonFace_Click(object sender, EventArgs e)
+        {
+            Point pt = PointToScreen(new Point(splitContainer4.Panel2.Left, splitContainer4.Panel2.Top));
+            ilp.Show(pt.X+200, pt.Y - 80);
+
+        }
+
+        /************************************************************************/
+        /* 选择了表情                                                                                          */
+        /************************************************************************/
+        public void OnItemClicked(object sender, ImageListPopupEventArgs e)
+        {
+            Image img = imageList.Images[e.SelectedItem];
+            Clipboard.SetDataObject(img);
+            richTextBoxMessage.ReadOnly = false;
+            richTextBoxMessage.Paste(DataFormats.GetFormat(DataFormats.Bitmap));
         }
     }
 

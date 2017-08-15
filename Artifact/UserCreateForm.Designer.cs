@@ -74,6 +74,7 @@
             // 
             // dateTimePickerExpire
             // 
+            this.dateTimePickerExpire.CustomFormat = "yyyy-MM-dd HH:mm:ss";
             this.dateTimePickerExpire.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dateTimePickerExpire.Location = new System.Drawing.Point(135, 170);
             this.dateTimePickerExpire.MinDate = new System.DateTime(2015, 9, 13, 0, 0, 0, 0);

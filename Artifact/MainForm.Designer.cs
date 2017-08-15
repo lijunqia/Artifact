@@ -46,17 +46,21 @@
             this.buttonResetPassword = new System.Windows.Forms.Button();
             this.textBoxKey = new System.Windows.Forms.TextBox();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
-            this.buttonMin = new System.Windows.Forms.Button();
+            this.splitContainer4 = new System.Windows.Forms.SplitContainer();
             this.webBrowserMessage = new System.Windows.Forms.WebBrowser();
+            this.buttonFace = new System.Windows.Forms.Button();
+            this.checkBoxNotice = new System.Windows.Forms.CheckBox();
+            this.checkBoxCut = new System.Windows.Forms.CheckBox();
             this.richTextBoxMessageList = new System.Windows.Forms.RichTextBox();
+            this.buttonCaputre = new System.Windows.Forms.Button();
+            this.buttonMin = new System.Windows.Forms.Button();
             this.splitContainer3 = new System.Windows.Forms.SplitContainer();
             this.richTextBoxMessage = new System.Windows.Forms.RichTextBox();
             this.labelTips = new System.Windows.Forms.Label();
-            this.buttonCaputre = new System.Windows.Forms.Button();
             this.buttonSend = new System.Windows.Forms.Button();
             this.buttonExit = new System.Windows.Forms.Button();
             this.timerRefresh = new System.Windows.Forms.Timer(this.components);
-            this.checkBoxNotice = new System.Windows.Forms.CheckBox();
+            this.toolTipButton = new System.Windows.Forms.ToolTip(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -68,6 +72,10 @@
             this.splitContainer2.Panel1.SuspendLayout();
             this.splitContainer2.Panel2.SuspendLayout();
             this.splitContainer2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer4)).BeginInit();
+            this.splitContainer4.Panel1.SuspendLayout();
+            this.splitContainer4.Panel2.SuspendLayout();
+            this.splitContainer4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer3)).BeginInit();
             this.splitContainer3.Panel1.SuspendLayout();
             this.splitContainer3.Panel2.SuspendLayout();
@@ -113,7 +121,7 @@
             this.splitContainer1.Panel1.Controls.Add(this.textBoxKey);
             this.splitContainer1.Panel1.Controls.Add(this.buttonSearch);
             this.splitContainer1.Panel1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.splitContainer1.Panel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.splitContainer1_Panel1_MouseDown);
+            this.splitContainer1.Panel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MainForm_MouseDown);
             // 
             // splitContainer1.Panel2
             // 
@@ -322,30 +330,45 @@
             // 
             // splitContainer2.Panel1
             // 
-            this.splitContainer2.Panel1.Controls.Add(this.buttonMin);
-            this.splitContainer2.Panel1.Controls.Add(this.webBrowserMessage);
-            this.splitContainer2.Panel1.Controls.Add(this.richTextBoxMessageList);
+            this.splitContainer2.Panel1.Controls.Add(this.splitContainer4);
             // 
             // splitContainer2.Panel2
             // 
             this.splitContainer2.Panel2.Controls.Add(this.splitContainer3);
             this.splitContainer2.Size = new System.Drawing.Size(801, 659);
-            this.splitContainer2.SplitterDistance = 488;
+            this.splitContainer2.SplitterDistance = 515;
             this.splitContainer2.SplitterWidth = 1;
             this.splitContainer2.TabIndex = 3;
             // 
-            // buttonMin
+            // splitContainer4
             // 
-            this.buttonMin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(50)))), ((int)(((byte)(56)))));
-            this.buttonMin.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(44)))), ((int)(((byte)(51)))));
-            this.buttonMin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonMin.Location = new System.Drawing.Point(751, -1);
-            this.buttonMin.Name = "buttonMin";
-            this.buttonMin.Size = new System.Drawing.Size(28, 23);
-            this.buttonMin.TabIndex = 3;
-            this.buttonMin.Text = "--";
-            this.buttonMin.UseVisualStyleBackColor = false;
-            this.buttonMin.Click += new System.EventHandler(this.buttonMin_Click);
+            this.splitContainer4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainer4.FixedPanel = System.Windows.Forms.FixedPanel.Panel2;
+            this.splitContainer4.IsSplitterFixed = true;
+            this.splitContainer4.Location = new System.Drawing.Point(0, 0);
+            this.splitContainer4.Name = "splitContainer4";
+            this.splitContainer4.Orientation = System.Windows.Forms.Orientation.Horizontal;
+            // 
+            // splitContainer4.Panel1
+            // 
+            this.splitContainer4.Panel1.Controls.Add(this.webBrowserMessage);
+            this.splitContainer4.Panel1.Controls.Add(this.buttonMin);
+            // 
+            // splitContainer4.Panel2
+            // 
+            this.splitContainer4.Panel2.BackgroundImage = global::Artifact.Properties.Resources.bar1;
+            this.splitContainer4.Panel2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.splitContainer4.Panel2.Controls.Add(this.buttonFace);
+            this.splitContainer4.Panel2.Controls.Add(this.checkBoxNotice);
+            this.splitContainer4.Panel2.Controls.Add(this.checkBoxCut);
+            this.splitContainer4.Panel2.Controls.Add(this.richTextBoxMessageList);
+            this.splitContainer4.Panel2.Controls.Add(this.buttonCaputre);
+            this.splitContainer4.Panel2.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MainForm_MouseDown);
+            this.splitContainer4.Panel2MinSize = 40;
+            this.splitContainer4.Size = new System.Drawing.Size(801, 515);
+            this.splitContainer4.SplitterDistance = 474;
+            this.splitContainer4.SplitterWidth = 1;
+            this.splitContainer4.TabIndex = 4;
             // 
             // webBrowserMessage
             // 
@@ -356,23 +379,94 @@
             this.webBrowserMessage.Location = new System.Drawing.Point(0, 0);
             this.webBrowserMessage.MinimumSize = new System.Drawing.Size(20, 20);
             this.webBrowserMessage.Name = "webBrowserMessage";
-            this.webBrowserMessage.Size = new System.Drawing.Size(801, 488);
+            this.webBrowserMessage.Size = new System.Drawing.Size(801, 474);
             this.webBrowserMessage.TabIndex = 2;
             this.webBrowserMessage.WebBrowserShortcutsEnabled = false;
+            // 
+            // buttonFace
+            // 
+            this.buttonFace.BackColor = System.Drawing.Color.Transparent;
+            this.buttonFace.FlatAppearance.BorderSize = 0;
+            this.buttonFace.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonFace.ForeColor = System.Drawing.SystemColors.Window;
+            this.buttonFace.Image = global::Artifact.Properties.Resources.face;
+            this.buttonFace.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonFace.Location = new System.Drawing.Point(41, 2);
+            this.buttonFace.Name = "buttonFace";
+            this.buttonFace.Size = new System.Drawing.Size(40, 35);
+            this.buttonFace.TabIndex = 5;
+            this.buttonFace.Tag = "";
+            this.buttonFace.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.toolTipButton.SetToolTip(this.buttonFace, "表情");
+            this.buttonFace.UseVisualStyleBackColor = false;
+            this.buttonFace.Click += new System.EventHandler(this.buttonFace_Click);
+            // 
+            // checkBoxNotice
+            // 
+            this.checkBoxNotice.AutoSize = true;
+            this.checkBoxNotice.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.checkBoxNotice.Location = new System.Drawing.Point(415, 15);
+            this.checkBoxNotice.Name = "checkBoxNotice";
+            this.checkBoxNotice.Size = new System.Drawing.Size(72, 16);
+            this.checkBoxNotice.TabIndex = 4;
+            this.checkBoxNotice.Text = "公告信息";
+            this.checkBoxNotice.UseVisualStyleBackColor = true;
+            this.checkBoxNotice.Visible = false;
+            // 
+            // checkBoxCut
+            // 
+            this.checkBoxCut.AutoSize = true;
+            this.checkBoxCut.ForeColor = System.Drawing.Color.Black;
+            this.checkBoxCut.Location = new System.Drawing.Point(152, 15);
+            this.checkBoxCut.Name = "checkBoxCut";
+            this.checkBoxCut.Size = new System.Drawing.Size(132, 16);
+            this.checkBoxCut.TabIndex = 2;
+            this.checkBoxCut.Text = "截图时隐藏当前窗口";
+            this.checkBoxCut.UseVisualStyleBackColor = true;
             // 
             // richTextBoxMessageList
             // 
             this.richTextBoxMessageList.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.richTextBoxMessageList.Font = new System.Drawing.Font("宋体", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.richTextBoxMessageList.ForeColor = System.Drawing.Color.Red;
-            this.richTextBoxMessageList.Location = new System.Drawing.Point(-62, 90);
+            this.richTextBoxMessageList.Location = new System.Drawing.Point(47, -127);
             this.richTextBoxMessageList.Name = "richTextBoxMessageList";
             this.richTextBoxMessageList.ShowSelectionMargin = true;
-            this.richTextBoxMessageList.Size = new System.Drawing.Size(753, 463);
+            this.richTextBoxMessageList.Size = new System.Drawing.Size(282, 100);
             this.richTextBoxMessageList.TabIndex = 1;
             this.richTextBoxMessageList.Text = "";
             this.richTextBoxMessageList.Visible = false;
             this.richTextBoxMessageList.LinkClicked += new System.Windows.Forms.LinkClickedEventHandler(this.richTextBoxMessageList_LinkClicked);
+            // 
+            // buttonCaputre
+            // 
+            this.buttonCaputre.FlatAppearance.BorderSize = 0;
+            this.buttonCaputre.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonCaputre.ForeColor = System.Drawing.SystemColors.Window;
+            this.buttonCaputre.Image = global::Artifact.Properties.Resources.cap;
+            this.buttonCaputre.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonCaputre.Location = new System.Drawing.Point(102, 8);
+            this.buttonCaputre.Name = "buttonCaputre";
+            this.buttonCaputre.Size = new System.Drawing.Size(44, 28);
+            this.buttonCaputre.TabIndex = 1;
+            this.buttonCaputre.Tag = "";
+            this.buttonCaputre.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.toolTipButton.SetToolTip(this.buttonCaputre, "截图");
+            this.buttonCaputre.UseVisualStyleBackColor = false;
+            this.buttonCaputre.Click += new System.EventHandler(this.buttonCaputre_Click);
+            // 
+            // buttonMin
+            // 
+            this.buttonMin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(50)))), ((int)(((byte)(56)))));
+            this.buttonMin.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(44)))), ((int)(((byte)(51)))));
+            this.buttonMin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonMin.Location = new System.Drawing.Point(746, 0);
+            this.buttonMin.Name = "buttonMin";
+            this.buttonMin.Size = new System.Drawing.Size(28, 23);
+            this.buttonMin.TabIndex = 3;
+            this.buttonMin.Text = "--";
+            this.buttonMin.UseVisualStyleBackColor = false;
+            this.buttonMin.Click += new System.EventHandler(this.buttonMin_Click);
             // 
             // splitContainer3
             // 
@@ -391,16 +485,14 @@
             // 
             // splitContainer3.Panel2
             // 
-            this.splitContainer3.Panel2.Controls.Add(this.checkBoxNotice);
             this.splitContainer3.Panel2.Controls.Add(this.labelTips);
-            this.splitContainer3.Panel2.Controls.Add(this.buttonCaputre);
             this.splitContainer3.Panel2.Controls.Add(this.buttonSend);
             this.splitContainer3.Panel2.Controls.Add(this.buttonExit);
             this.splitContainer3.Panel2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.splitContainer3.Panel2.MouseDown += new System.Windows.Forms.MouseEventHandler(this.splitContainer3_Panel2_MouseDown);
+            this.splitContainer3.Panel2.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MainForm_MouseDown);
             this.splitContainer3.Panel2MinSize = 50;
-            this.splitContainer3.Size = new System.Drawing.Size(801, 170);
-            this.splitContainer3.SplitterDistance = 119;
+            this.splitContainer3.Size = new System.Drawing.Size(801, 143);
+            this.splitContainer3.SplitterDistance = 95;
             this.splitContainer3.SplitterWidth = 1;
             this.splitContainer3.TabIndex = 1;
             this.splitContainer3.TabStop = false;
@@ -415,7 +507,7 @@
             this.richTextBoxMessage.Location = new System.Drawing.Point(10, 10);
             this.richTextBoxMessage.Margin = new System.Windows.Forms.Padding(5);
             this.richTextBoxMessage.Name = "richTextBoxMessage";
-            this.richTextBoxMessage.Size = new System.Drawing.Size(781, 99);
+            this.richTextBoxMessage.Size = new System.Drawing.Size(781, 75);
             this.richTextBoxMessage.TabIndex = 0;
             this.richTextBoxMessage.Text = "";
             // 
@@ -428,27 +520,13 @@
             this.labelTips.Size = new System.Drawing.Size(0, 12);
             this.labelTips.TabIndex = 2;
             // 
-            // buttonCaputre
-            // 
-            this.buttonCaputre.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(70)))), ((int)(((byte)(76)))));
-            this.buttonCaputre.FlatAppearance.BorderSize = 0;
-            this.buttonCaputre.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonCaputre.ForeColor = System.Drawing.SystemColors.Window;
-            this.buttonCaputre.Location = new System.Drawing.Point(555, 5);
-            this.buttonCaputre.Name = "buttonCaputre";
-            this.buttonCaputre.Size = new System.Drawing.Size(100, 28);
-            this.buttonCaputre.TabIndex = 1;
-            this.buttonCaputre.Text = "截图(&C)";
-            this.buttonCaputre.UseVisualStyleBackColor = false;
-            this.buttonCaputre.Click += new System.EventHandler(this.buttonCaputre_Click);
-            // 
             // buttonSend
             // 
             this.buttonSend.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(70)))), ((int)(((byte)(76)))));
             this.buttonSend.FlatAppearance.BorderSize = 0;
             this.buttonSend.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonSend.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.buttonSend.Location = new System.Drawing.Point(674, 5);
+            this.buttonSend.Location = new System.Drawing.Point(674, 8);
             this.buttonSend.Name = "buttonSend";
             this.buttonSend.Size = new System.Drawing.Size(100, 28);
             this.buttonSend.TabIndex = 0;
@@ -462,7 +540,7 @@
             this.buttonExit.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(44)))), ((int)(((byte)(51)))));
             this.buttonExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonExit.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.buttonExit.Location = new System.Drawing.Point(436, 5);
+            this.buttonExit.Location = new System.Drawing.Point(553, 8);
             this.buttonExit.Name = "buttonExit";
             this.buttonExit.Size = new System.Drawing.Size(100, 28);
             this.buttonExit.TabIndex = 3;
@@ -475,17 +553,6 @@
             this.timerRefresh.Enabled = true;
             this.timerRefresh.Interval = 5000;
             this.timerRefresh.Tick += new System.EventHandler(this.timerRefresh_Tick);
-            // 
-            // checkBoxNotice
-            // 
-            this.checkBoxNotice.AutoSize = true;
-            this.checkBoxNotice.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.checkBoxNotice.Location = new System.Drawing.Point(292, 12);
-            this.checkBoxNotice.Name = "checkBoxNotice";
-            this.checkBoxNotice.Size = new System.Drawing.Size(72, 16);
-            this.checkBoxNotice.TabIndex = 4;
-            this.checkBoxNotice.Text = "公告信息";
-            this.checkBoxNotice.UseVisualStyleBackColor = true;
             // 
             // MainForm
             // 
@@ -516,6 +583,11 @@
             this.splitContainer2.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).EndInit();
             this.splitContainer2.ResumeLayout(false);
+            this.splitContainer4.Panel1.ResumeLayout(false);
+            this.splitContainer4.Panel2.ResumeLayout(false);
+            this.splitContainer4.Panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer4)).EndInit();
+            this.splitContainer4.ResumeLayout(false);
             this.splitContainer3.Panel1.ResumeLayout(false);
             this.splitContainer3.Panel2.ResumeLayout(false);
             this.splitContainer3.Panel2.PerformLayout();
@@ -554,6 +626,10 @@
         private System.Windows.Forms.Button buttonMin;
         private System.Windows.Forms.Button buttonNotice;
         private System.Windows.Forms.CheckBox checkBoxNotice;
+        private System.Windows.Forms.SplitContainer splitContainer4;
+        private System.Windows.Forms.CheckBox checkBoxCut;
+        private System.Windows.Forms.Button buttonFace;
+        private System.Windows.Forms.ToolTip toolTipButton;
     }
 }
 
