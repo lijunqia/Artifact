@@ -21,6 +21,8 @@ using System.Threading;
 using System.Text.RegularExpressions;
 using System.Security.Permissions;
 using CustomUIControls;
+using JRichText.Model;
+
 namespace Artifact
 {
     [PermissionSet(SecurityAction.Demand, Name = "FullTrust")]
@@ -43,9 +45,16 @@ namespace Artifact
         [DllImport("kernel32.dll")]
         public static extern bool Beep(int frequency, int duration);
 
+        public int syncMmaxId = 0;
+        public int syncServiceMmaxId = 0;
+
         public MainForm()
         {
             InitializeComponent();
+            Response res = new Response();
+            this.webBrowserMessage.Navigate(new Uri(res.getHtmlMessage()));
+            this.webBrowserMessage.ObjectForScripting = this;
+
             imageList = new ImageList();
             imageList.ImageSize = new Size(32, 32);
             imageList.ColorDepth = ColorDepth.Depth32Bit;       //32位的带alpha通道的可以直接透明 
@@ -101,10 +110,6 @@ namespace Artifact
                 */
                 // this.setMessage(10);
 
-                Response res = new Response();
-                // this.webBrowserNotice.Navigate(new Uri(res.getHtmlNotice()));
-                this.webBrowserMessage.ObjectForScripting = this;
-                this.webBrowserMessage.Navigate(new Uri(res.getHtmlMessage()));
                 this.labelName.Text = Program.user.user_name;
 
                 this.richTextBoxMessage.Focus();
@@ -122,12 +127,95 @@ namespace Artifact
             if (this.WindowState == FormWindowState.Minimized)
                 this.WindowState = FormWindowState.Normal;
         }
+        public void showServiceWindow(string count)
+        {
+            Beep(2766, 700);
+            this.labelCount.Text = "[" + count.ToString() + "条]";
+            if (this.WindowState == FormWindowState.Minimized)
+                this.WindowState = FormWindowState.Normal;
+        }
 
+        public void btnButtonClick(object sender, EventArgs e)
+        {
+            Button btn = (Button)sender;
+            BTNType btnType;
+            if (Enum.TryParse<BTNType>(btn.Tag.ToString(), out btnType))
+            {
+                if (btnType == BTNType.Search)
+                {
+                    if (!string.IsNullOrEmpty(this.textBoxKey.Text.Trim()))
+                    {
+                        this.webBrowserMessage.Tag = this.textBoxKey.Text.Trim();
+                    }
+                    else
+                    {
+                        return;
+                    }
+
+                }
+                IRichFormat richFomat = RichFormatFactory.CreateRichFormat(btnType);
+                richFomat.SetFormat(this.richTextBoxMessage);
+            }
+        }
+
+        private void combFontSize_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            float fsize = 12.0f;
+            if (combFontSize.SelectedIndex > -1)
+            {
+                if (float.TryParse(combFontSize.SelectedItem.ToString(), out fsize))
+                {
+                    richTextBoxMessage.Tag = fsize.ToString();
+                    IRichFormat richFomat = RichFormatFactory.CreateRichFormat(BTNType.FontSize);
+                    richFomat.SetFormat(this.richTextBoxMessage);
+                }
+                return;
+            }
+        }
         private void timerRefresh_Tick(object sender, EventArgs e)
         {
             //this.setMessage(20);
+            try
+            {
 
+                string html = webBrowserMessage.Document.GetElementById("syncform").GetAttribute("innerHTML");
+                Console.WriteLine(" html " + html);
+                int id = 0;
+                int.TryParse(html, out id);
+                if (id > 0 && syncMmaxId < id)
+                {
+                    syncMmaxId = id;
+                    Beep(500, 700);
+                    if (this.WindowState == FormWindowState.Minimized)
+                    {
+
+                        this.WindowState = FormWindowState.Normal;
+                        this.TopMost = true;
+                    }
+                }
+                html = webBrowserMessage.Document.GetElementById("syncserviceform").GetAttribute("innerHTML");
+                Console.WriteLine(" html " + html);
+                id = 0;
+                int.TryParse(html, out id);
+                if (id > 0 && syncServiceMmaxId < id)
+                {
+                    html = webBrowserMessage.Document.GetElementById("syncservicecount").GetAttribute("innerHTML");
+                    syncServiceMmaxId = id;
+                    Beep(2766, 700);
+                    this.labelCount.Text = "[" + html + "条]";
+                    if (this.WindowState == FormWindowState.Minimized)
+                    {
+                        this.WindowState = FormWindowState.Normal;
+                        this.TopMost = true;
+                    }
+                }
+            }
+            catch(Exception ex)
+            {
+                Console.WriteLine(" Exception " + ex.Message);
+            }
         }
+
         /// <summary>
         /// 获取信息并显示
         /// </summary>
@@ -194,10 +282,10 @@ namespace Artifact
 
         private void buttonSearch_Click(object sender, EventArgs e)
         {
-            int pos = this.richTextBoxMessageList.Find(this.textBoxKey.Text);
-            this.richTextBoxMessageList.Select(pos, this.textBoxKey.Text.Length);
-            this.richTextBoxMessageList.SelectionColor = Color.Red;
-            this.richTextBoxMessageList.Focus();
+//            int pos = this.richTextBoxMessageList.Find(this.textBoxKey.Text);
+//            this.richTextBoxMessageList.Select(pos, this.textBoxKey.Text.Length);
+//            this.richTextBoxMessageList.SelectionColor = Color.Red;
+ //           this.richTextBoxMessageList.Focus();
         }
 
         private void buttonMessageAdd_Click(object sender, EventArgs e)
@@ -249,7 +337,7 @@ namespace Artifact
         {
             ChatForm frm = new ChatForm();
             frm.Show();
-
+            this.labelCount.Text = "";
         }
 
         private void buttonSend_Click(object sender, EventArgs e)
@@ -431,6 +519,20 @@ namespace Artifact
             Clipboard.SetDataObject(img);
             richTextBoxMessage.ReadOnly = false;
             richTextBoxMessage.Paste(DataFormats.GetFormat(DataFormats.Bitmap));
+        }
+
+        private void buttonMusic_Click(object sender, EventArgs e)
+        {
+
+            MusicForm frm = new MusicForm();
+            frm.Show();
+        }
+
+        private void buttonWallpaper_Click(object sender, EventArgs e)
+        {
+
+            WallpaperForm frm = new WallpaperForm();
+            frm.Show();
         }
     }
 

@@ -165,6 +165,7 @@
             this.richTextBoxChat.Dock = System.Windows.Forms.DockStyle.Top;
             this.richTextBoxChat.EnableAutoDragDrop = true;
             this.richTextBoxChat.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.richTextBoxChat.ImeMode = System.Windows.Forms.ImeMode.On;
             this.richTextBoxChat.Location = new System.Drawing.Point(0, 0);
             this.richTextBoxChat.Name = "richTextBoxChat";
             this.richTextBoxChat.Size = new System.Drawing.Size(559, 248);

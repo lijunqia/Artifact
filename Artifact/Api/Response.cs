@@ -21,29 +21,66 @@ namespace Artifact.Api
         public string items { get; set; }
         public string extra { get; set; }
 
-        protected string apiUserLogin = "http://a.o9l.net/site/login?";
-        protected string apiUserList = "http://a.o9l.net/user?";
-        protected string apiUserService = "http://a.o9l.net/user/service?";
-        protected string apiUserCreate = "http://a.o9l.net/user/create?";
-        protected string apiUserUpdate = "http://a.o9l.net/user/update?";
-        protected string apiUserDelete = "http://a.o9l.net/user/delete?";
-        protected string apiUserReset = "http://a.o9l.net/user/reset?";
-        protected string apiMessageCreate = "http://a.o9l.net/message/create?";
-        protected string apiMessageList = "http://a.o9l.net/message?";
-        protected string apiMessageDelete = "http://a.o9l.net/message/delete?";
-        protected string apiMessageUpload = "http://a.o9l.net/message/upload?";
-        protected string apiChatCreate = "http://a.o9l.net/chat/create?";
-        protected string apiChatList = "http://a.o9l.net/chat?";
-        protected string apiChatDelete = "http://a.o9l.net/chat/delete?";
-        protected string apiChatUpload = "http://a.o9l.net/chat/upload?";
-        protected string apiChatUser = "http://a.o9l.net/chat/user?";
-        protected string htmlMessage = "http://a.o9l.net/message/list?";
-        protected string htmlNotice = "http://a.o9l.net/notice/index?";
-        protected string htmlOnline = "http://a.o9l.net/session/index?";
-        protected string apiNoticeCreate = "http://a.o9l.net/notice/create?";
-        protected string apiNoticeDelete = "http://a.o9l.net/notice/delete?";
-        protected string apiNoticeUpload = "http://a.o9l.net/notice/upload?";
+        private string apiUrl = "http://a.o9l.net";//正式
+        //private string apiUrl = "http://b.o9l.net";//测试
+        protected string apiUserLogin = "/site/login?";
+        protected string apiUserList = "/user?";
+        protected string apiUserService = "/user/service?";
+        protected string apiUserCreate = "/user/create?";
+        protected string apiUserUpdate = "/user/update?";
+        protected string apiUserDelete = "/user/delete?";
+        protected string apiUserReset = "/user/reset?";
+        protected string apiMessageCreate = "/message/create?";
+        protected string apiMessageList = "/message?";
+        protected string apiMessageDelete = "/message/delete?";
+        protected string apiMessageUpload = "/message/upload?";
+        protected string apiChatCreate = "/chat/create?";
+        protected string apiChatList = "/chat?";
+        protected string apiChatDelete = "/chat/delete?";
+        protected string apiChatUpload = "/chat/upload?";
+        protected string apiChatUser = "/chat/user?";
+        protected string htmlMessage = "/message/list?";
+        protected string htmlNotice = "/notice/index?";
+        protected string htmlOnline = "/session/index?";
+        protected string apiNoticeCreate = "/notice/create?";
+        protected string apiNoticeDelete = "/notice/delete?";
+        protected string apiNoticeUpload = "/notice/upload?";
+        protected string apiCheckMessage = "/chat/check?";
 
+        public Response()
+        {
+
+            apiUserLogin = apiUrl + "/site/login?";
+            apiUserList = apiUrl + "/user?";
+            apiUserService = apiUrl + "/user/service?";
+            apiUserCreate = apiUrl + "/user/create?";
+            apiUserUpdate = apiUrl + "/user/update?";
+            apiUserDelete = apiUrl + "/user/delete?";
+            apiUserReset = apiUrl + "/user/reset?";
+            apiMessageCreate = apiUrl + "/message/create?";
+            apiMessageList = apiUrl + "/message?";
+            apiMessageDelete = apiUrl + "/message/delete?";
+            apiMessageUpload = apiUrl + "/message/upload?";
+            apiChatCreate = apiUrl + "/chat/create?";
+            apiChatList = apiUrl + "/chat?";
+            apiChatDelete = apiUrl + "/chat/delete?";
+            apiChatUpload = apiUrl + "/chat/upload?";
+            apiChatUser = apiUrl + "/chat/user?";
+            htmlMessage = apiUrl + "/message/list?";
+            htmlNotice = apiUrl + "/notice/index?";
+            htmlOnline = apiUrl + "/session/index?";
+            apiNoticeCreate = apiUrl + "/notice/create?";
+            apiNoticeDelete = apiUrl + "/notice/delete?";
+            apiNoticeUpload = apiUrl + "/notice/upload?";
+            apiCheckMessage = apiUrl + "/chat/check?";
+        }
+
+        public string getCheckMessage(int minm,int minc)
+        {
+            User manageUser = Program.user;
+            string url = this.apiCheckMessage + "minm="+minm+"&minc="+minc+"&token=" + manageUser.token;
+            return url;
+        }
         public string getHtmlMessage()
         {
             User manageUser = Program.user;

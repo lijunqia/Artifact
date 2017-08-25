@@ -70,7 +70,7 @@
     <SignManifests>false</SignManifests>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>favicon.ico</ApplicationIcon>
+    <ApplicationIcon>Resources\favicon.ico</ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup>
     <StartupObject>Artifact.Program</StartupObject>
@@ -99,48 +99,57 @@
     <Compile Include="Api\Role.cs" />
     <Compile Include="Api\Snap.cs" />
     <Compile Include="Api\User.cs" />
-    <Compile Include="ChatForm.cs">
+    <Compile Include="Model\BaseRichFormat.cs" />
+    <Compile Include="Form\ChatForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ChatForm.Designer.cs">
+    <Compile Include="Form\ChatForm.Designer.cs">
       <DependentUpon>ChatForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="ImageListPopup.cs" />
-    <Compile Include="OnlineForm.cs">
+    <Compile Include="Model\Enum.cs" />
+    <Compile Include="Model\ImageListPopup.cs" />
+    <Compile Include="Model\IRichFormat.cs" />
+    <Compile Include="Form\OnlineForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="OnlineForm.Designer.cs">
+    <Compile Include="Form\OnlineForm.Designer.cs">
       <DependentUpon>OnlineForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="LoginForm.cs">
+    <Compile Include="Form\LoginForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="LoginForm.Designer.cs">
+    <Compile Include="Form\LoginForm.Designer.cs">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="MainForm.cs">
+    <Compile Include="Form\MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MainForm.Designer.cs">
+    <Compile Include="Form\MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="MessageAddForm.cs">
+    <Compile Include="Form\MessageAddForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MessageAddForm.Designer.cs">
+    <Compile Include="Form\MessageAddForm.Designer.cs">
       <DependentUpon>MessageAddForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="MessageListForm.cs">
+    <Compile Include="Form\MessageListForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MessageListForm.Designer.cs">
+    <Compile Include="Form\MessageListForm.Designer.cs">
       <DependentUpon>MessageListForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="NoticeForm.cs">
+    <Compile Include="Form\NoticeForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="NoticeForm.Designer.cs">
+    <Compile Include="Form\NoticeForm.Designer.cs">
       <DependentUpon>NoticeForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form\MusicForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\MusicForm.Designer.cs">
+      <DependentUpon>MusicForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -149,49 +158,60 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="ScreenForm.cs">
+    <Compile Include="Model\RichFormatFactory.cs" />
+    <Compile Include="Form\ScreenForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ScreenForm.Designer.cs">
+    <Compile Include="Form\ScreenForm.Designer.cs">
       <DependentUpon>ScreenForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="UserCreateForm.cs">
+    <Compile Include="Model\SubRichFormat.cs" />
+    <Compile Include="Form\UserCreateForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UserCreateForm.Designer.cs">
+    <Compile Include="Form\UserCreateForm.Designer.cs">
       <DependentUpon>UserCreateForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="UserListForm.cs">
+    <Compile Include="Form\UserListForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UserListForm.Designer.cs">
+    <Compile Include="Form\UserListForm.Designer.cs">
       <DependentUpon>UserListForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="UserResetPasswordForm.cs">
+    <Compile Include="Form\UserResetPasswordForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UserResetPasswordForm.Designer.cs">
+    <Compile Include="Form\UserResetPasswordForm.Designer.cs">
       <DependentUpon>UserResetPasswordForm.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="ChatForm.resx">
+    <Compile Include="WallpaperForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WallpaperForm.Designer.cs">
+      <DependentUpon>WallpaperForm.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Form\ChatForm.resx">
       <DependentUpon>ChatForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="OnlineForm.resx">
+    <EmbeddedResource Include="Form\MusicForm.resx">
+      <DependentUpon>MusicForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\OnlineForm.resx">
       <DependentUpon>OnlineForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="LoginForm.resx">
+    <EmbeddedResource Include="Form\LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MainForm.resx">
+    <EmbeddedResource Include="Form\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MessageAddForm.resx">
+    <EmbeddedResource Include="Form\MessageAddForm.resx">
       <DependentUpon>MessageAddForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MessageListForm.resx">
+    <EmbeddedResource Include="Form\MessageListForm.resx">
       <DependentUpon>MessageListForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="NoticeForm.resx">
+    <EmbeddedResource Include="Form\NoticeForm.resx">
       <DependentUpon>NoticeForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -199,17 +219,20 @@
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="ScreenForm.resx">
+    <EmbeddedResource Include="Form\ScreenForm.resx">
       <DependentUpon>ScreenForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UserCreateForm.resx">
+    <EmbeddedResource Include="Form\UserCreateForm.resx">
       <DependentUpon>UserCreateForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UserListForm.resx">
+    <EmbeddedResource Include="Form\UserListForm.resx">
       <DependentUpon>UserListForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UserResetPasswordForm.resx">
+    <EmbeddedResource Include="Form\UserResetPasswordForm.resx">
       <DependentUpon>UserResetPasswordForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WallpaperForm.resx">
+      <DependentUpon>WallpaperForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="app.config" />
     <None Include="Properties\app.manifest" />
@@ -244,13 +267,36 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\cap.png" />
-    <None Include="Resources\face.png" />
-    <EmbeddedResource Include="face2.bmp" />
-    <Content Include="favicon.ico" />
+    <EmbeddedResource Include="Resources\face.png" />
     <EmbeddedResource Include="Resources\face2.bmp" />
-    <None Include="Resources\cut.png" />
+    <EmbeddedResource Include="face2.bmp" />
+    <None Include="icons\align_center.gif" />
+    <None Include="icons\align_left.gif" />
+    <None Include="icons\align_right.gif" />
+    <None Include="icons\background.gif" />
+    <None Include="icons\bold.gif" />
+    <None Include="icons\del.gif" />
+    <None Include="icons\font.gif" />
+    <None Include="icons\foreground.gif" />
+    <None Include="icons\help_print.gif" />
+    <None Include="icons\help_search.gif" />
+    <None Include="icons\indent.gif" />
+    <None Include="icons\italic.gif" />
+    <None Include="icons\outdent.gif" />
+    <None Include="icons\picture.png" />
+    <None Include="icons\strikeout.gif" />
+    <None Include="icons\subscript.gif" />
+    <None Include="icons\superscript.gif" />
+    <None Include="icons\ul.gif" />
+    <None Include="icons\underline.gif" />
+    <None Include="icons\search.png" />
+    <None Include="icons\music.ico" />
+    <None Include="icons\hand.png" />
+    <None Include="icons\icon-cancel-active.png" />
+    <None Include="icons\icon-signed-5.png" />
+    <Content Include="Resources\favicon.ico" />
+    <EmbeddedResource Include="Resources\cut.png" />
     <None Include="Resources\bar1.png" />
-    <None Include="Resources\bar.png" />
     <None Include="Resources\3.png" />
     <None Include="Resources\2.png" />
     <None Include="Resources\search_ico.png" />

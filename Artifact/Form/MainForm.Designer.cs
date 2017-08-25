@@ -32,6 +32,9 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.buttonSearch = new System.Windows.Forms.Button();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.buttonWallpaper = new System.Windows.Forms.Button();
+            this.buttonMusic = new System.Windows.Forms.Button();
+            this.labelCount = new System.Windows.Forms.Label();
             this.buttonNotice = new System.Windows.Forms.Button();
             this.labelName = new System.Windows.Forms.Label();
             this.pictureBoxAvatar = new System.Windows.Forms.PictureBox();
@@ -48,12 +51,29 @@
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
             this.splitContainer4 = new System.Windows.Forms.SplitContainer();
             this.webBrowserMessage = new System.Windows.Forms.WebBrowser();
+            this.buttonMin = new System.Windows.Forms.Button();
+            this.combFontSize = new System.Windows.Forms.ComboBox();
+            this.btnPic = new System.Windows.Forms.Button();
+            this.btnSubScript = new System.Windows.Forms.Button();
+            this.btnSuperScript = new System.Windows.Forms.Button();
+            this.btnBold = new System.Windows.Forms.Button();
+            this.btnLeft = new System.Windows.Forms.Button();
+            this.btnItalic = new System.Windows.Forms.Button();
+            this.btnCenter = new System.Windows.Forms.Button();
+            this.btnUnderLine = new System.Windows.Forms.Button();
+            this.btnRight = new System.Windows.Forms.Button();
+            this.btnStrikeLine = new System.Windows.Forms.Button();
+            this.btnFont = new System.Windows.Forms.Button();
+            this.btnIdent = new System.Windows.Forms.Button();
+            this.btnBackgroundColor = new System.Windows.Forms.Button();
+            this.btnOutIdent = new System.Windows.Forms.Button();
+            this.btnForeColor = new System.Windows.Forms.Button();
+            this.btnUl = new System.Windows.Forms.Button();
             this.buttonFace = new System.Windows.Forms.Button();
             this.checkBoxNotice = new System.Windows.Forms.CheckBox();
             this.checkBoxCut = new System.Windows.Forms.CheckBox();
             this.richTextBoxMessageList = new System.Windows.Forms.RichTextBox();
             this.buttonCaputre = new System.Windows.Forms.Button();
-            this.buttonMin = new System.Windows.Forms.Button();
             this.splitContainer3 = new System.Windows.Forms.SplitContainer();
             this.richTextBoxMessage = new System.Windows.Forms.RichTextBox();
             this.labelTips = new System.Windows.Forms.Label();
@@ -85,17 +105,21 @@
             // buttonSearch
             // 
             this.buttonSearch.BackColor = System.Drawing.Color.Transparent;
-            this.buttonSearch.BackgroundImage = global::Artifact.Properties.Resources.search_ico;
+            this.buttonSearch.BackgroundImage = global::Artifact.Properties.Resources.search;
             this.buttonSearch.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.buttonSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonSearch.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.buttonSearch.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(58)))), ((int)(((byte)(58)))));
-            this.buttonSearch.Location = new System.Drawing.Point(161, 70);
+            this.buttonSearch.Image = global::Artifact.Properties.Resources.search;
+            this.buttonSearch.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonSearch.Location = new System.Drawing.Point(161, 64);
             this.buttonSearch.Name = "buttonSearch";
             this.buttonSearch.Size = new System.Drawing.Size(26, 26);
             this.buttonSearch.TabIndex = 1;
+            this.buttonSearch.Tag = "Search";
             this.buttonSearch.UseVisualStyleBackColor = false;
-            this.buttonSearch.Click += new System.EventHandler(this.buttonSearch_Click);
+            this.buttonSearch.Visible = false;
+            this.buttonSearch.Click += new System.EventHandler(this.btnButtonClick);
             // 
             // splitContainer1
             // 
@@ -111,6 +135,9 @@
             // splitContainer1.Panel1
             // 
             this.splitContainer1.Panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(50)))), ((int)(((byte)(56)))));
+            this.splitContainer1.Panel1.Controls.Add(this.buttonWallpaper);
+            this.splitContainer1.Panel1.Controls.Add(this.buttonMusic);
+            this.splitContainer1.Panel1.Controls.Add(this.labelCount);
             this.splitContainer1.Panel1.Controls.Add(this.buttonNotice);
             this.splitContainer1.Panel1.Controls.Add(this.labelName);
             this.splitContainer1.Panel1.Controls.Add(this.pictureBoxAvatar);
@@ -133,15 +160,57 @@
             this.splitContainer1.SplitterWidth = 1;
             this.splitContainer1.TabIndex = 6;
             // 
+            // buttonWallpaper
+            // 
+            this.buttonWallpaper.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(70)))), ((int)(((byte)(76)))));
+            this.buttonWallpaper.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(44)))), ((int)(((byte)(51)))));
+            this.buttonWallpaper.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonWallpaper.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.buttonWallpaper.Image = global::Artifact.Properties.Resources.picture;
+            this.buttonWallpaper.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonWallpaper.Location = new System.Drawing.Point(0, 321);
+            this.buttonWallpaper.Name = "buttonWallpaper";
+            this.buttonWallpaper.Size = new System.Drawing.Size(200, 55);
+            this.buttonWallpaper.TabIndex = 15;
+            this.buttonWallpaper.Text = "电脑壁纸(&W)";
+            this.buttonWallpaper.UseVisualStyleBackColor = false;
+            this.buttonWallpaper.Click += new System.EventHandler(this.buttonWallpaper_Click);
+            // 
+            // buttonMusic
+            // 
+            this.buttonMusic.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(70)))), ((int)(((byte)(76)))));
+            this.buttonMusic.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(44)))), ((int)(((byte)(51)))));
+            this.buttonMusic.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonMusic.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.buttonMusic.Image = global::Artifact.Properties.Resources.music;
+            this.buttonMusic.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonMusic.Location = new System.Drawing.Point(0, 267);
+            this.buttonMusic.Name = "buttonMusic";
+            this.buttonMusic.Size = new System.Drawing.Size(200, 55);
+            this.buttonMusic.TabIndex = 14;
+            this.buttonMusic.Text = "音乐频道(&M)";
+            this.buttonMusic.UseVisualStyleBackColor = false;
+            this.buttonMusic.Click += new System.EventHandler(this.buttonMusic_Click);
+            // 
+            // labelCount
+            // 
+            this.labelCount.AutoSize = true;
+            this.labelCount.BackColor = System.Drawing.Color.Transparent;
+            this.labelCount.ForeColor = System.Drawing.Color.Red;
+            this.labelCount.Location = new System.Drawing.Point(145, 134);
+            this.labelCount.Name = "labelCount";
+            this.labelCount.Size = new System.Drawing.Size(0, 12);
+            this.labelCount.TabIndex = 13;
+            // 
             // buttonNotice
             // 
             this.buttonNotice.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(70)))), ((int)(((byte)(76)))));
             this.buttonNotice.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(44)))), ((int)(((byte)(51)))));
             this.buttonNotice.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonNotice.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.buttonNotice.Image = global::Artifact.Properties.Resources._3;
+            this.buttonNotice.Image = global::Artifact.Properties.Resources.icon_cancel_active;
             this.buttonNotice.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonNotice.Location = new System.Drawing.Point(-1, 220);
+            this.buttonNotice.Location = new System.Drawing.Point(-1, 213);
             this.buttonNotice.Name = "buttonNotice";
             this.buttonNotice.Size = new System.Drawing.Size(200, 55);
             this.buttonNotice.TabIndex = 12;
@@ -161,9 +230,9 @@
             // pictureBoxAvatar
             // 
             this.pictureBoxAvatar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBoxAvatar.ErrorImage = global::Artifact.Properties.Resources._1;
-            this.pictureBoxAvatar.Image = global::Artifact.Properties.Resources._1;
-            this.pictureBoxAvatar.InitialImage = global::Artifact.Properties.Resources._1;
+            this.pictureBoxAvatar.ErrorImage = ((System.Drawing.Image)(resources.GetObject("pictureBoxAvatar.ErrorImage")));
+            this.pictureBoxAvatar.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxAvatar.Image")));
+            this.pictureBoxAvatar.InitialImage = ((System.Drawing.Image)(resources.GetObject("pictureBoxAvatar.InitialImage")));
             this.pictureBoxAvatar.Location = new System.Drawing.Point(13, 13);
             this.pictureBoxAvatar.Name = "pictureBoxAvatar";
             this.pictureBoxAvatar.Size = new System.Drawing.Size(40, 40);
@@ -178,9 +247,9 @@
             this.buttonChat.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(44)))), ((int)(((byte)(51)))));
             this.buttonChat.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonChat.ForeColor = System.Drawing.Color.White;
-            this.buttonChat.Image = global::Artifact.Properties.Resources._2;
+            this.buttonChat.Image = ((System.Drawing.Image)(resources.GetObject("buttonChat.Image")));
             this.buttonChat.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonChat.Location = new System.Drawing.Point(0, 112);
+            this.buttonChat.Location = new System.Drawing.Point(0, 105);
             this.buttonChat.Name = "buttonChat";
             this.buttonChat.Size = new System.Drawing.Size(200, 55);
             this.buttonChat.TabIndex = 8;
@@ -296,9 +365,9 @@
             this.buttonResetPassword.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(44)))), ((int)(((byte)(51)))));
             this.buttonResetPassword.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonResetPassword.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.buttonResetPassword.Image = global::Artifact.Properties.Resources._3;
+            this.buttonResetPassword.Image = global::Artifact.Properties.Resources.icon_signed_5;
             this.buttonResetPassword.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonResetPassword.Location = new System.Drawing.Point(0, 166);
+            this.buttonResetPassword.Location = new System.Drawing.Point(0, 159);
             this.buttonResetPassword.Name = "buttonResetPassword";
             this.buttonResetPassword.Size = new System.Drawing.Size(200, 55);
             this.buttonResetPassword.TabIndex = 5;
@@ -313,10 +382,11 @@
             this.textBoxKey.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.textBoxKey.ForeColor = System.Drawing.Color.White;
             this.textBoxKey.ImeMode = System.Windows.Forms.ImeMode.On;
-            this.textBoxKey.Location = new System.Drawing.Point(13, 70);
+            this.textBoxKey.Location = new System.Drawing.Point(13, 64);
             this.textBoxKey.Name = "textBoxKey";
             this.textBoxKey.Size = new System.Drawing.Size(148, 26);
             this.textBoxKey.TabIndex = 3;
+            this.textBoxKey.Visible = false;
             this.textBoxKey.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxKey_KeyPress);
             // 
             // splitContainer2
@@ -336,7 +406,7 @@
             // 
             this.splitContainer2.Panel2.Controls.Add(this.splitContainer3);
             this.splitContainer2.Size = new System.Drawing.Size(801, 659);
-            this.splitContainer2.SplitterDistance = 515;
+            this.splitContainer2.SplitterDistance = 500;
             this.splitContainer2.SplitterWidth = 1;
             this.splitContainer2.TabIndex = 3;
             // 
@@ -358,6 +428,23 @@
             // 
             this.splitContainer4.Panel2.BackgroundImage = global::Artifact.Properties.Resources.bar1;
             this.splitContainer4.Panel2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.splitContainer4.Panel2.Controls.Add(this.combFontSize);
+            this.splitContainer4.Panel2.Controls.Add(this.btnPic);
+            this.splitContainer4.Panel2.Controls.Add(this.btnSubScript);
+            this.splitContainer4.Panel2.Controls.Add(this.btnSuperScript);
+            this.splitContainer4.Panel2.Controls.Add(this.btnBold);
+            this.splitContainer4.Panel2.Controls.Add(this.btnLeft);
+            this.splitContainer4.Panel2.Controls.Add(this.btnItalic);
+            this.splitContainer4.Panel2.Controls.Add(this.btnCenter);
+            this.splitContainer4.Panel2.Controls.Add(this.btnUnderLine);
+            this.splitContainer4.Panel2.Controls.Add(this.btnRight);
+            this.splitContainer4.Panel2.Controls.Add(this.btnStrikeLine);
+            this.splitContainer4.Panel2.Controls.Add(this.btnFont);
+            this.splitContainer4.Panel2.Controls.Add(this.btnIdent);
+            this.splitContainer4.Panel2.Controls.Add(this.btnBackgroundColor);
+            this.splitContainer4.Panel2.Controls.Add(this.btnOutIdent);
+            this.splitContainer4.Panel2.Controls.Add(this.btnForeColor);
+            this.splitContainer4.Panel2.Controls.Add(this.btnUl);
             this.splitContainer4.Panel2.Controls.Add(this.buttonFace);
             this.splitContainer4.Panel2.Controls.Add(this.checkBoxNotice);
             this.splitContainer4.Panel2.Controls.Add(this.checkBoxCut);
@@ -365,8 +452,8 @@
             this.splitContainer4.Panel2.Controls.Add(this.buttonCaputre);
             this.splitContainer4.Panel2.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MainForm_MouseDown);
             this.splitContainer4.Panel2MinSize = 40;
-            this.splitContainer4.Size = new System.Drawing.Size(801, 515);
-            this.splitContainer4.SplitterDistance = 474;
+            this.splitContainer4.Size = new System.Drawing.Size(801, 500);
+            this.splitContainer4.SplitterDistance = 459;
             this.splitContainer4.SplitterWidth = 1;
             this.splitContainer4.TabIndex = 4;
             // 
@@ -379,9 +466,245 @@
             this.webBrowserMessage.Location = new System.Drawing.Point(0, 0);
             this.webBrowserMessage.MinimumSize = new System.Drawing.Size(20, 20);
             this.webBrowserMessage.Name = "webBrowserMessage";
-            this.webBrowserMessage.Size = new System.Drawing.Size(801, 474);
+            this.webBrowserMessage.Size = new System.Drawing.Size(801, 459);
             this.webBrowserMessage.TabIndex = 2;
-            this.webBrowserMessage.WebBrowserShortcutsEnabled = false;
+            // 
+            // buttonMin
+            // 
+            this.buttonMin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(50)))), ((int)(((byte)(56)))));
+            this.buttonMin.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(44)))), ((int)(((byte)(51)))));
+            this.buttonMin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonMin.Location = new System.Drawing.Point(774, 0);
+            this.buttonMin.Name = "buttonMin";
+            this.buttonMin.Size = new System.Drawing.Size(24, 23);
+            this.buttonMin.TabIndex = 3;
+            this.buttonMin.Text = "--";
+            this.buttonMin.UseVisualStyleBackColor = false;
+            this.buttonMin.Click += new System.EventHandler(this.buttonMin_Click);
+            // 
+            // combFontSize
+            // 
+            this.combFontSize.FormattingEnabled = true;
+            this.combFontSize.Items.AddRange(new object[] {
+            "5",
+            "5.5",
+            "6.5",
+            "7.5",
+            "8",
+            "9",
+            "10",
+            "10.5",
+            "11",
+            "12",
+            "14",
+            "16",
+            "18",
+            "20",
+            "22",
+            "24",
+            "26",
+            "28",
+            "36",
+            "48",
+            "72"});
+            this.combFontSize.Location = new System.Drawing.Point(185, 11);
+            this.combFontSize.Name = "combFontSize";
+            this.combFontSize.Size = new System.Drawing.Size(71, 20);
+            this.combFontSize.TabIndex = 22;
+            this.combFontSize.Text = "字体大小";
+            this.combFontSize.Visible = false;
+            this.combFontSize.SelectedIndexChanged += new System.EventHandler(this.combFontSize_SelectedIndexChanged);
+            // 
+            // btnPic
+            // 
+            this.btnPic.Image = global::Artifact.Properties.Resources.picture;
+            this.btnPic.Location = new System.Drawing.Point(678, 9);
+            this.btnPic.Name = "btnPic";
+            this.btnPic.Size = new System.Drawing.Size(24, 23);
+            this.btnPic.TabIndex = 21;
+            this.btnPic.Tag = "Pic";
+            this.btnPic.UseVisualStyleBackColor = true;
+            this.btnPic.Click += new System.EventHandler(this.btnButtonClick);
+            // 
+            // btnSubScript
+            // 
+            this.btnSubScript.Image = global::Artifact.Properties.Resources.subscript;
+            this.btnSubScript.Location = new System.Drawing.Point(651, 9);
+            this.btnSubScript.Name = "btnSubScript";
+            this.btnSubScript.Size = new System.Drawing.Size(24, 23);
+            this.btnSubScript.TabIndex = 20;
+            this.btnSubScript.Tag = "SubScript";
+            this.btnSubScript.UseVisualStyleBackColor = true;
+            this.btnSubScript.Visible = false;
+            this.btnSubScript.Click += new System.EventHandler(this.btnButtonClick);
+            // 
+            // btnSuperScript
+            // 
+            this.btnSuperScript.Image = global::Artifact.Properties.Resources.superscript;
+            this.btnSuperScript.Location = new System.Drawing.Point(624, 9);
+            this.btnSuperScript.Name = "btnSuperScript";
+            this.btnSuperScript.Size = new System.Drawing.Size(24, 23);
+            this.btnSuperScript.TabIndex = 19;
+            this.btnSuperScript.Tag = "SuperScript";
+            this.btnSuperScript.UseVisualStyleBackColor = true;
+            this.btnSuperScript.Visible = false;
+            this.btnSuperScript.Click += new System.EventHandler(this.btnButtonClick);
+            // 
+            // btnBold
+            // 
+            this.btnBold.Image = global::Artifact.Properties.Resources.bold;
+            this.btnBold.Location = new System.Drawing.Point(597, 9);
+            this.btnBold.Name = "btnBold";
+            this.btnBold.Size = new System.Drawing.Size(24, 23);
+            this.btnBold.TabIndex = 18;
+            this.btnBold.Tag = "Bold";
+            this.btnBold.UseVisualStyleBackColor = true;
+            this.btnBold.Visible = false;
+            this.btnBold.Click += new System.EventHandler(this.btnButtonClick);
+            // 
+            // btnLeft
+            // 
+            this.btnLeft.Image = global::Artifact.Properties.Resources.align_left;
+            this.btnLeft.Location = new System.Drawing.Point(570, 9);
+            this.btnLeft.Name = "btnLeft";
+            this.btnLeft.Size = new System.Drawing.Size(24, 23);
+            this.btnLeft.TabIndex = 17;
+            this.btnLeft.Tag = "Left";
+            this.btnLeft.UseVisualStyleBackColor = true;
+            this.btnLeft.Visible = false;
+            this.btnLeft.Click += new System.EventHandler(this.btnButtonClick);
+            // 
+            // btnItalic
+            // 
+            this.btnItalic.Image = global::Artifact.Properties.Resources.italic;
+            this.btnItalic.Location = new System.Drawing.Point(543, 9);
+            this.btnItalic.Name = "btnItalic";
+            this.btnItalic.Size = new System.Drawing.Size(24, 23);
+            this.btnItalic.TabIndex = 16;
+            this.btnItalic.Tag = "Italic";
+            this.btnItalic.UseVisualStyleBackColor = true;
+            this.btnItalic.Visible = false;
+            this.btnItalic.Click += new System.EventHandler(this.btnButtonClick);
+            // 
+            // btnCenter
+            // 
+            this.btnCenter.Image = global::Artifact.Properties.Resources.align_center;
+            this.btnCenter.Location = new System.Drawing.Point(516, 9);
+            this.btnCenter.Name = "btnCenter";
+            this.btnCenter.Size = new System.Drawing.Size(24, 23);
+            this.btnCenter.TabIndex = 15;
+            this.btnCenter.Tag = "Center";
+            this.btnCenter.UseVisualStyleBackColor = true;
+            this.btnCenter.Visible = false;
+            this.btnCenter.Click += new System.EventHandler(this.btnButtonClick);
+            // 
+            // btnUnderLine
+            // 
+            this.btnUnderLine.Image = global::Artifact.Properties.Resources.underline;
+            this.btnUnderLine.Location = new System.Drawing.Point(489, 9);
+            this.btnUnderLine.Name = "btnUnderLine";
+            this.btnUnderLine.Size = new System.Drawing.Size(24, 23);
+            this.btnUnderLine.TabIndex = 14;
+            this.btnUnderLine.Tag = "UnderLine";
+            this.btnUnderLine.UseVisualStyleBackColor = true;
+            this.btnUnderLine.Visible = false;
+            this.btnUnderLine.Click += new System.EventHandler(this.btnButtonClick);
+            // 
+            // btnRight
+            // 
+            this.btnRight.Image = global::Artifact.Properties.Resources.align_right;
+            this.btnRight.Location = new System.Drawing.Point(462, 9);
+            this.btnRight.Name = "btnRight";
+            this.btnRight.Size = new System.Drawing.Size(24, 23);
+            this.btnRight.TabIndex = 13;
+            this.btnRight.Tag = "Right";
+            this.btnRight.UseVisualStyleBackColor = true;
+            this.btnRight.Visible = false;
+            this.btnRight.Click += new System.EventHandler(this.btnButtonClick);
+            // 
+            // btnStrikeLine
+            // 
+            this.btnStrikeLine.Image = global::Artifact.Properties.Resources.strikeout;
+            this.btnStrikeLine.Location = new System.Drawing.Point(435, 9);
+            this.btnStrikeLine.Name = "btnStrikeLine";
+            this.btnStrikeLine.Size = new System.Drawing.Size(24, 23);
+            this.btnStrikeLine.TabIndex = 12;
+            this.btnStrikeLine.Tag = "StrikeLine";
+            this.btnStrikeLine.UseVisualStyleBackColor = true;
+            this.btnStrikeLine.Visible = false;
+            this.btnStrikeLine.Click += new System.EventHandler(this.btnButtonClick);
+            // 
+            // btnFont
+            // 
+            this.btnFont.Image = global::Artifact.Properties.Resources.font;
+            this.btnFont.Location = new System.Drawing.Point(408, 9);
+            this.btnFont.Name = "btnFont";
+            this.btnFont.Size = new System.Drawing.Size(24, 23);
+            this.btnFont.TabIndex = 11;
+            this.btnFont.Tag = "Font";
+            this.btnFont.UseVisualStyleBackColor = true;
+            this.btnFont.Visible = false;
+            this.btnFont.Click += new System.EventHandler(this.btnButtonClick);
+            // 
+            // btnIdent
+            // 
+            this.btnIdent.Image = global::Artifact.Properties.Resources.indent;
+            this.btnIdent.Location = new System.Drawing.Point(381, 9);
+            this.btnIdent.Name = "btnIdent";
+            this.btnIdent.Size = new System.Drawing.Size(24, 23);
+            this.btnIdent.TabIndex = 10;
+            this.btnIdent.Tag = "Indent";
+            this.btnIdent.UseVisualStyleBackColor = true;
+            this.btnIdent.Visible = false;
+            this.btnIdent.Click += new System.EventHandler(this.btnButtonClick);
+            // 
+            // btnBackgroundColor
+            // 
+            this.btnBackgroundColor.Image = global::Artifact.Properties.Resources.background;
+            this.btnBackgroundColor.Location = new System.Drawing.Point(354, 9);
+            this.btnBackgroundColor.Name = "btnBackgroundColor";
+            this.btnBackgroundColor.Size = new System.Drawing.Size(24, 23);
+            this.btnBackgroundColor.TabIndex = 9;
+            this.btnBackgroundColor.Tag = "BGColor";
+            this.btnBackgroundColor.UseVisualStyleBackColor = true;
+            this.btnBackgroundColor.Visible = false;
+            this.btnBackgroundColor.Click += new System.EventHandler(this.btnButtonClick);
+            // 
+            // btnOutIdent
+            // 
+            this.btnOutIdent.Image = global::Artifact.Properties.Resources.outdent;
+            this.btnOutIdent.Location = new System.Drawing.Point(327, 9);
+            this.btnOutIdent.Name = "btnOutIdent";
+            this.btnOutIdent.Size = new System.Drawing.Size(24, 23);
+            this.btnOutIdent.TabIndex = 8;
+            this.btnOutIdent.Tag = "OutIndent";
+            this.btnOutIdent.UseVisualStyleBackColor = true;
+            this.btnOutIdent.Visible = false;
+            this.btnOutIdent.Click += new System.EventHandler(this.btnButtonClick);
+            // 
+            // btnForeColor
+            // 
+            this.btnForeColor.Image = global::Artifact.Properties.Resources.foreground;
+            this.btnForeColor.Location = new System.Drawing.Point(300, 9);
+            this.btnForeColor.Name = "btnForeColor";
+            this.btnForeColor.Size = new System.Drawing.Size(24, 23);
+            this.btnForeColor.TabIndex = 7;
+            this.btnForeColor.Tag = "ForeColor";
+            this.btnForeColor.UseVisualStyleBackColor = true;
+            this.btnForeColor.Visible = false;
+            this.btnForeColor.Click += new System.EventHandler(this.btnButtonClick);
+            // 
+            // btnUl
+            // 
+            this.btnUl.Image = global::Artifact.Properties.Resources.ul;
+            this.btnUl.Location = new System.Drawing.Point(273, 9);
+            this.btnUl.Name = "btnUl";
+            this.btnUl.Size = new System.Drawing.Size(24, 23);
+            this.btnUl.TabIndex = 6;
+            this.btnUl.Tag = "Ul";
+            this.btnUl.UseVisualStyleBackColor = true;
+            this.btnUl.Visible = false;
+            this.btnUl.Click += new System.EventHandler(this.btnButtonClick);
             // 
             // buttonFace
             // 
@@ -391,7 +714,7 @@
             this.buttonFace.ForeColor = System.Drawing.SystemColors.Window;
             this.buttonFace.Image = global::Artifact.Properties.Resources.face;
             this.buttonFace.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonFace.Location = new System.Drawing.Point(41, 2);
+            this.buttonFace.Location = new System.Drawing.Point(3, 2);
             this.buttonFace.Name = "buttonFace";
             this.buttonFace.Size = new System.Drawing.Size(40, 35);
             this.buttonFace.TabIndex = 5;
@@ -405,7 +728,7 @@
             // 
             this.checkBoxNotice.AutoSize = true;
             this.checkBoxNotice.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.checkBoxNotice.Location = new System.Drawing.Point(415, 15);
+            this.checkBoxNotice.Location = new System.Drawing.Point(708, 13);
             this.checkBoxNotice.Name = "checkBoxNotice";
             this.checkBoxNotice.Size = new System.Drawing.Size(72, 16);
             this.checkBoxNotice.TabIndex = 4;
@@ -417,11 +740,11 @@
             // 
             this.checkBoxCut.AutoSize = true;
             this.checkBoxCut.ForeColor = System.Drawing.Color.Black;
-            this.checkBoxCut.Location = new System.Drawing.Point(152, 15);
+            this.checkBoxCut.Location = new System.Drawing.Point(83, 13);
             this.checkBoxCut.Name = "checkBoxCut";
-            this.checkBoxCut.Size = new System.Drawing.Size(132, 16);
+            this.checkBoxCut.Size = new System.Drawing.Size(96, 16);
             this.checkBoxCut.TabIndex = 2;
-            this.checkBoxCut.Text = "截图时隐藏当前窗口";
+            this.checkBoxCut.Text = "截图隐藏窗口";
             this.checkBoxCut.UseVisualStyleBackColor = true;
             // 
             // richTextBoxMessageList
@@ -445,7 +768,7 @@
             this.buttonCaputre.ForeColor = System.Drawing.SystemColors.Window;
             this.buttonCaputre.Image = global::Artifact.Properties.Resources.cap;
             this.buttonCaputre.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonCaputre.Location = new System.Drawing.Point(102, 8);
+            this.buttonCaputre.Location = new System.Drawing.Point(37, 6);
             this.buttonCaputre.Name = "buttonCaputre";
             this.buttonCaputre.Size = new System.Drawing.Size(44, 28);
             this.buttonCaputre.TabIndex = 1;
@@ -454,19 +777,6 @@
             this.toolTipButton.SetToolTip(this.buttonCaputre, "截图");
             this.buttonCaputre.UseVisualStyleBackColor = false;
             this.buttonCaputre.Click += new System.EventHandler(this.buttonCaputre_Click);
-            // 
-            // buttonMin
-            // 
-            this.buttonMin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(50)))), ((int)(((byte)(56)))));
-            this.buttonMin.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(44)))), ((int)(((byte)(51)))));
-            this.buttonMin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonMin.Location = new System.Drawing.Point(746, 0);
-            this.buttonMin.Name = "buttonMin";
-            this.buttonMin.Size = new System.Drawing.Size(28, 23);
-            this.buttonMin.TabIndex = 3;
-            this.buttonMin.Text = "--";
-            this.buttonMin.UseVisualStyleBackColor = false;
-            this.buttonMin.Click += new System.EventHandler(this.buttonMin_Click);
             // 
             // splitContainer3
             // 
@@ -491,8 +801,8 @@
             this.splitContainer3.Panel2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.splitContainer3.Panel2.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MainForm_MouseDown);
             this.splitContainer3.Panel2MinSize = 50;
-            this.splitContainer3.Size = new System.Drawing.Size(801, 143);
-            this.splitContainer3.SplitterDistance = 95;
+            this.splitContainer3.Size = new System.Drawing.Size(801, 158);
+            this.splitContainer3.SplitterDistance = 107;
             this.splitContainer3.SplitterWidth = 1;
             this.splitContainer3.TabIndex = 1;
             this.splitContainer3.TabStop = false;
@@ -507,7 +817,7 @@
             this.richTextBoxMessage.Location = new System.Drawing.Point(10, 10);
             this.richTextBoxMessage.Margin = new System.Windows.Forms.Padding(5);
             this.richTextBoxMessage.Name = "richTextBoxMessage";
-            this.richTextBoxMessage.Size = new System.Drawing.Size(781, 75);
+            this.richTextBoxMessage.Size = new System.Drawing.Size(781, 87);
             this.richTextBoxMessage.TabIndex = 0;
             this.richTextBoxMessage.Text = "";
             // 
@@ -515,7 +825,7 @@
             // 
             this.labelTips.AutoSize = true;
             this.labelTips.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.labelTips.Location = new System.Drawing.Point(81, 14);
+            this.labelTips.Location = new System.Drawing.Point(81, 10);
             this.labelTips.Name = "labelTips";
             this.labelTips.Size = new System.Drawing.Size(0, 12);
             this.labelTips.TabIndex = 2;
@@ -526,7 +836,7 @@
             this.buttonSend.FlatAppearance.BorderSize = 0;
             this.buttonSend.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonSend.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.buttonSend.Location = new System.Drawing.Point(674, 8);
+            this.buttonSend.Location = new System.Drawing.Point(674, 6);
             this.buttonSend.Name = "buttonSend";
             this.buttonSend.Size = new System.Drawing.Size(100, 28);
             this.buttonSend.TabIndex = 0;
@@ -540,7 +850,7 @@
             this.buttonExit.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(44)))), ((int)(((byte)(51)))));
             this.buttonExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonExit.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.buttonExit.Location = new System.Drawing.Point(553, 8);
+            this.buttonExit.Location = new System.Drawing.Point(548, 6);
             this.buttonExit.Name = "buttonExit";
             this.buttonExit.Size = new System.Drawing.Size(100, 28);
             this.buttonExit.TabIndex = 3;
@@ -551,7 +861,7 @@
             // timerRefresh
             // 
             this.timerRefresh.Enabled = true;
-            this.timerRefresh.Interval = 5000;
+            this.timerRefresh.Interval = 1000;
             this.timerRefresh.Tick += new System.EventHandler(this.timerRefresh_Tick);
             // 
             // MainForm
@@ -630,6 +940,26 @@
         private System.Windows.Forms.CheckBox checkBoxCut;
         private System.Windows.Forms.Button buttonFace;
         private System.Windows.Forms.ToolTip toolTipButton;
+        private System.Windows.Forms.Label labelCount;
+        private System.Windows.Forms.Button btnUl;
+        private System.Windows.Forms.ComboBox combFontSize;
+        private System.Windows.Forms.Button btnPic;
+        private System.Windows.Forms.Button btnSubScript;
+        private System.Windows.Forms.Button btnSuperScript;
+        private System.Windows.Forms.Button btnBold;
+        private System.Windows.Forms.Button btnLeft;
+        private System.Windows.Forms.Button btnItalic;
+        private System.Windows.Forms.Button btnCenter;
+        private System.Windows.Forms.Button btnUnderLine;
+        private System.Windows.Forms.Button btnRight;
+        private System.Windows.Forms.Button btnStrikeLine;
+        private System.Windows.Forms.Button btnFont;
+        private System.Windows.Forms.Button btnIdent;
+        private System.Windows.Forms.Button btnBackgroundColor;
+        private System.Windows.Forms.Button btnOutIdent;
+        private System.Windows.Forms.Button btnForeColor;
+        private System.Windows.Forms.Button buttonWallpaper;
+        private System.Windows.Forms.Button buttonMusic;
     }
 }
 
