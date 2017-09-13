@@ -81,6 +81,8 @@
             this.buttonExit = new System.Windows.Forms.Button();
             this.timerRefresh = new System.Windows.Forms.Timer(this.components);
             this.toolTipButton = new System.Windows.Forms.ToolTip(this.components);
+            this.contextMenuStripRight = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.toolStripMenuItemReload = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -100,6 +102,7 @@
             this.splitContainer3.Panel1.SuspendLayout();
             this.splitContainer3.Panel2.SuspendLayout();
             this.splitContainer3.SuspendLayout();
+            this.contextMenuStripRight.SuspendLayout();
             this.SuspendLayout();
             // 
             // buttonSearch
@@ -406,7 +409,7 @@
             // 
             this.splitContainer2.Panel2.Controls.Add(this.splitContainer3);
             this.splitContainer2.Size = new System.Drawing.Size(801, 659);
-            this.splitContainer2.SplitterDistance = 500;
+            this.splitContainer2.SplitterDistance = 503;
             this.splitContainer2.SplitterWidth = 1;
             this.splitContainer2.TabIndex = 3;
             // 
@@ -421,8 +424,8 @@
             // 
             // splitContainer4.Panel1
             // 
-            this.splitContainer4.Panel1.Controls.Add(this.webBrowserMessage);
             this.splitContainer4.Panel1.Controls.Add(this.buttonMin);
+            this.splitContainer4.Panel1.Controls.Add(this.webBrowserMessage);
             // 
             // splitContainer4.Panel2
             // 
@@ -452,8 +455,8 @@
             this.splitContainer4.Panel2.Controls.Add(this.buttonCaputre);
             this.splitContainer4.Panel2.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MainForm_MouseDown);
             this.splitContainer4.Panel2MinSize = 40;
-            this.splitContainer4.Size = new System.Drawing.Size(801, 500);
-            this.splitContainer4.SplitterDistance = 459;
+            this.splitContainer4.Size = new System.Drawing.Size(801, 503);
+            this.splitContainer4.SplitterDistance = 462;
             this.splitContainer4.SplitterWidth = 1;
             this.splitContainer4.TabIndex = 4;
             // 
@@ -461,12 +464,14 @@
             // 
             this.webBrowserMessage.AllowNavigation = false;
             this.webBrowserMessage.AllowWebBrowserDrop = false;
+            this.webBrowserMessage.ContextMenuStrip = this.contextMenuStripRight;
             this.webBrowserMessage.Dock = System.Windows.Forms.DockStyle.Fill;
             this.webBrowserMessage.IsWebBrowserContextMenuEnabled = false;
             this.webBrowserMessage.Location = new System.Drawing.Point(0, 0);
             this.webBrowserMessage.MinimumSize = new System.Drawing.Size(20, 20);
             this.webBrowserMessage.Name = "webBrowserMessage";
-            this.webBrowserMessage.Size = new System.Drawing.Size(801, 459);
+            this.webBrowserMessage.ScriptErrorsSuppressed = true;
+            this.webBrowserMessage.Size = new System.Drawing.Size(801, 462);
             this.webBrowserMessage.TabIndex = 2;
             // 
             // buttonMin
@@ -474,7 +479,7 @@
             this.buttonMin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(50)))), ((int)(((byte)(56)))));
             this.buttonMin.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(44)))), ((int)(((byte)(51)))));
             this.buttonMin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonMin.Location = new System.Drawing.Point(774, 0);
+            this.buttonMin.Location = new System.Drawing.Point(778, 0);
             this.buttonMin.Name = "buttonMin";
             this.buttonMin.Size = new System.Drawing.Size(24, 23);
             this.buttonMin.TabIndex = 3;
@@ -801,7 +806,7 @@
             this.splitContainer3.Panel2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.splitContainer3.Panel2.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MainForm_MouseDown);
             this.splitContainer3.Panel2MinSize = 50;
-            this.splitContainer3.Size = new System.Drawing.Size(801, 158);
+            this.splitContainer3.Size = new System.Drawing.Size(801, 155);
             this.splitContainer3.SplitterDistance = 107;
             this.splitContainer3.SplitterWidth = 1;
             this.splitContainer3.TabIndex = 1;
@@ -864,6 +869,20 @@
             this.timerRefresh.Interval = 1000;
             this.timerRefresh.Tick += new System.EventHandler(this.timerRefresh_Tick);
             // 
+            // contextMenuStripRight
+            // 
+            this.contextMenuStripRight.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripMenuItemReload});
+            this.contextMenuStripRight.Name = "contextMenuStripRight";
+            this.contextMenuStripRight.Size = new System.Drawing.Size(149, 26);
+            // 
+            // toolStripMenuItemReload
+            // 
+            this.toolStripMenuItemReload.Name = "toolStripMenuItemReload";
+            this.toolStripMenuItemReload.Size = new System.Drawing.Size(148, 22);
+            this.toolStripMenuItemReload.Text = "重新加载数据";
+            this.toolStripMenuItemReload.Click += new System.EventHandler(this.toolStripMenuItemReload_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -903,6 +922,7 @@
             this.splitContainer3.Panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer3)).EndInit();
             this.splitContainer3.ResumeLayout(false);
+            this.contextMenuStripRight.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -960,6 +980,8 @@
         private System.Windows.Forms.Button btnForeColor;
         private System.Windows.Forms.Button buttonWallpaper;
         private System.Windows.Forms.Button buttonMusic;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStripRight;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemReload;
     }
 }
 

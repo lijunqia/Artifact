@@ -51,6 +51,7 @@
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "电脑壁纸";
+            this.TopMost = true;
             this.ResumeLayout(false);
 
         }

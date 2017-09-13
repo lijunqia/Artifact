@@ -21,8 +21,8 @@ namespace Artifact.Api
         public string items { get; set; }
         public string extra { get; set; }
 
-        private string apiUrl = "http://a.o9l.net";//正式
-        //private string apiUrl = "http://b.o9l.net";//测试
+        //private string apiUrl = "http://a.o9l.net";//正式
+        private string apiUrl = "http://b.o9l.net";//测试
         protected string apiUserLogin = "/site/login?";
         protected string apiUserList = "/user?";
         protected string apiUserService = "/user/service?";

@@ -182,10 +182,22 @@ namespace Artifact
                 Console.WriteLine(" html " + html);
                 int id = 0;
                 int.TryParse(html, out id);
+                this.TopMost = false;
                 if (id > 0 && syncMmaxId < id)
                 {
                     syncMmaxId = id;
-                    Beep(500, 700);
+                    
+                    Beep(500, 100);
+                    Beep(494, 100);
+                    Beep(523, 100);
+                    Beep(578, 100);
+                    Beep(932, 100);
+                    Beep(1046, 100);
+                    Beep(1175, 100);
+                    Beep(1381, 100);
+                    Beep(1480, 100);
+                    Beep(1661, 100);
+                    Beep(2066, 100);
                     if (this.WindowState == FormWindowState.Minimized)
                     {
 
@@ -201,7 +213,11 @@ namespace Artifact
                 {
                     html = webBrowserMessage.Document.GetElementById("syncservicecount").GetAttribute("innerHTML");
                     syncServiceMmaxId = id;
-                    Beep(2766, 700);
+                    Beep(659, 100);
+                    Beep(698, 100);
+                    Beep(784, 100);
+                    Beep(880, 100);
+                    Beep(2766, 100);
                     this.labelCount.Text = "[" + html + "条]";
                     if (this.WindowState == FormWindowState.Minimized)
                     {
@@ -392,7 +408,7 @@ namespace Artifact
 
                             if (snap != null)
                             {
-                                text += "<img src='" + snap.url + "' />";
+                                text += "<img src=\"" + snap.url + "\" data-preview-src=\"\" data-preview-group=\"1\"  class=\"msg-content-image\" />";
                             }
                         }
                         this.labelTips.Text = "上传完成";
@@ -533,6 +549,11 @@ namespace Artifact
 
             WallpaperForm frm = new WallpaperForm();
             frm.Show();
+        }
+
+        private void toolStripMenuItemReload_Click(object sender, EventArgs e)
+        {
+            this.webBrowserMessage.Refresh();
         }
     }
 

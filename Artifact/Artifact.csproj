@@ -184,10 +184,10 @@
     <Compile Include="Form\UserResetPasswordForm.Designer.cs">
       <DependentUpon>UserResetPasswordForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="WallpaperForm.cs">
+    <Compile Include="Form\WallpaperForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="WallpaperForm.Designer.cs">
+    <Compile Include="Form\WallpaperForm.Designer.cs">
       <DependentUpon>WallpaperForm.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Form\ChatForm.resx">
@@ -231,7 +231,7 @@
     <EmbeddedResource Include="Form\UserResetPasswordForm.resx">
       <DependentUpon>UserResetPasswordForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="WallpaperForm.resx">
+    <EmbeddedResource Include="Form\WallpaperForm.resx">
       <DependentUpon>WallpaperForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="app.config" />

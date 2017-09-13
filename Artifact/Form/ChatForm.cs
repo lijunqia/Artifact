@@ -99,7 +99,7 @@ namespace Artifact
 
                             if (snap != null)
                             {
-                                text += "<img src='" + snap.url + "' />";
+                                text += "<img src=\"" + snap.url + "\" data-preview-src=\"\" data-preview-group=\"1\"  class=\"msg-content-image\" />";
                             }
                         }
                         //label1.Text = "上传完成";
